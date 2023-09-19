@@ -1,0 +1,28 @@
+{
+    "albums": [
+        {
+            "id": 1,
+            "artist": "TotoTotoTotoToto",
+            "title": "Toto IV",
+            "year": 1982,
+            "genre": "Pop",
+            "tracks": 10
+        },
+        {
+            "id": 3,
+            "artist": "Miles Davis",
+            "title": "Kind of Blue",
+            "year": 1959,
+            "genre": "Jazz",
+            "tracks": 5
+        },
+        {
+            "artist": "Metallica",
+            "title": "And Justice For All",
+            "year": 1988,
+            "genre": "Trash Metal",
+            "tracks": 9,
+            "id": 4
+        }
+    ]
+}

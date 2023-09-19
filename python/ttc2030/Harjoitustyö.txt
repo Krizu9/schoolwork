@@ -1,0 +1,5 @@
+Muuttujat, ohjausrakenteet, input/output, kokoelmat
+funktiot, kutsuminen, poikkeusten käsittely
+muuttujien ja funktioiden nimeäminen
+kommentointi
+tiedostojen käyttö/tallennus
