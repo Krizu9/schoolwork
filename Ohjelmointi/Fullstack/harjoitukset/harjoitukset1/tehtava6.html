@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        hr {
+            display: block;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: inset;
+            border-width: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Javascript-taulukon läpikäynti</h1>
+    <h3>for- ja for...of-silmukalla</h3>
+    <hr>
+    <div id="ensimmainen"></div>
+    <br>
+    <div id="taulukonTulostus"></div>
+    <div id="alkioMaara"></div>
+    <div id="lukuM"></div>
+    <div id="summaa"></div>
+    <div id="kesK"></div>
+    <script>
+
+
+        let taulukko = [11, 22, 33, 44];
+        let summa = 0;
+        let lukumaara = 0;
+
+        let tulosrivit = '';
+
+
+        for (let i = 0; i < taulukko.length; i++) {
+            tulosrivit = tulosrivit + ("taulukko[" + i + "] = " + taulukko[i] + '<br>')
+        }
+
+        document.getElementById("taulukonTulostus").innerHTML = tulosrivit;
+        for (taulukko of taulukko) {
+            summa = summa + taulukko
+            lukumaara = lukumaara + 1
+        }
+        let keskiarvoIlmanpyoristusta = summa / lukumaara;
+        let keskiarvo = keskiarvoIlmanpyoristusta.toFixed(1);
+        document.getElementById("alkioMaara").innerHTML = "<br>Taulukon alkioiden";
+        document.getElementById("lukuM").innerHTML = "<br>lukumäärä: " + lukumaara;
+        document.getElementById("summaa").innerHTML = "summa: " + summa;
+        document.getElementById("kesK").innerHTML = "Keskiarvo: " + keskiarvo;
+        document.getElementById("ensimmainen").innerHTML = "Taulukon alkiot ovat";
+
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+
+</html>

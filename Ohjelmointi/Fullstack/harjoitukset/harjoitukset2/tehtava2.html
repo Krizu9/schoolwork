@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <p>
+        ohjelma alkaa riviltä (1.) jossa määritetään funktio. Ohjelma siirtyy eteenpäin koska tässäkohtaa ei ole
+        ensimmäisellä funktiolla toiminnallisuutta.<br><br>
+
+        Ohjelma hyppää riville (5.), jossa on funktio myFunc. myFunk:issa on string "pitsa, (muuttuja1) ja
+        (muuttuja2)<br><br>
+
+        seuraavaksi rivillä (6.) määritetään muuttuuja result, joka kutsuu rivin (1.) funktiota, ja määrittää
+        (muuttuja1="kinkulla")<br>
+        ja (muuttuja2="juustolla), sekä callbackkää myFunc-funktion.<br><br>
+
+        Seuraavaksi ohjelma hyppää riville (2.) ja suorittaa callbackin funktiolle myFunc (muuttuja1="kinkulla") ja
+        (muuttuja2=<br>
+        "juustolla")<br><br>
+
+
+        Seuraavaksi ohjelma suorittaa myFunc-funktion, ja lisää myFuncin stringiin muuttujat, joka muodostaa
+        stringin:<br>
+        (Pitsa kinkulla ja juustolla) ja lähettää sen takaisin riville (2.).<br><br>
+
+        Tämä viimeistelee rivin (6.) result muuttujan arvoksi stringin ("Pitsa kinkulla ja juustolla")<br><br>
+
+        Viimeisenä rivillä (7.) tulostetaan result konsoliin, joka on ("Pitsa kinkulla ja juustolla")<br><br><br><br>
+
+        1: const myFunctionWithCallback = (p1, p2, callback) => {<br>
+        2: return callback(p1, p2)<br>
+        3: }<br>4:<br>
+        5: const myFunc = (p1, p2) => `Pitsa ${p1} ja ${p2}`<br>
+        6: const result = myFunctionWithCallback('kinkulla', 'juustolla', myFunc)<br>
+        7: console.log(result)
+    </p>
+    <script>
+
+
+    </script>
+</body>
+
+</html>

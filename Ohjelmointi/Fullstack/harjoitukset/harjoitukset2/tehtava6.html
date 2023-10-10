@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8" />
+    <title>Kristian Returnbox</title>
+</head>
+<script>
+    class Vauhtilaskin {
+        constructor(h = 1, min = 20, sec = 0, km = 10) {
+            this.h = h;
+            this.min = min;
+            this.sec = sec;
+            this.km = km;
+        }
+
+        calcKmhPace() {
+            const tunnit = parseInt(this.h) + (parseInt(this.min) * 60 + parseInt(this.sec)) / 3600;
+            const tulos = this.km / tunnit;
+            return tulos.toFixed(2);
+        }
+
+        kmhpace() {
+            return this.calcKmhPace() + " km/h";
+        }
+    }
+
+    const vauhtiLaskin = new Vauhtilaskin();
+
+    function calcKmhPace() {
+        const vauhtiLaskin = new Vauhtilaskin(
+            document.getElementById("n1").value,
+            document.getElementById("n2").value,
+            document.getElementById("n3").value,
+            document.getElementById("n4").value,
+        );
+
+        const result = vauhtiLaskin.kmhpace();
+        document.getElementById("answer").textContent = result;
+    }
+</script>
+
+<body>
+    <h1>Kristian Returnbox <br> AD0462</h1>
+    <h1></h1>
+    <div class="card">
+        <h2>Tehtävä 6</h2>
+        <div class="box">
+            <form id=f>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Tunnit: </td>
+                            <td><input type="text" id="n1" placeholder="1" value="1"></td>
+                        </tr>
+                        <tr>
+                            <td>Minuutit: </td>
+                            <td><input type="text" id="n2" placeholder="20" value="20"></td>
+                        </tr>
+                        <tr>
+                            <td>Sekunnit: </td>
+                            <td><input type="text" id="n3" placeholder="0" value="0"></td>
+                        </tr>
+                        <tr>
+                            <td>Kilometrit:</td>
+                            <td><input type="text" id="n4" placeholder="0" value="10"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            <button class="buttonforteht6" onClick="calcKmhPace()">Laske kmh-vauhti</button>
+            <p id="answer"></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

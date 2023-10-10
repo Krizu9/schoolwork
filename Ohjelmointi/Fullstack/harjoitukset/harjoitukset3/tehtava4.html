@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <link rel="stylesheet" href="src/styles.css">
+    <meta charset="utf-8" />
+    <title>Kristian Returnbox</title>
+</head>
+
+<body>
+    <h1>Kristian Returnbox <br> AD0462</h1>
+    <h1></h1>
+    <div class="card">
+        <div class="boxt4">
+            <h1>Simple To Do</h1>
+            <p>ToDo:</p>
+            <input type="text" id="input" placeholder="Add new todo">
+            <button id="addButton" type="button">Lisää</button>
+            <button id="clearButton" type="button">Tyhjää lista</button>
+            <div class="todoList">
+                <ul id="lista"></ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    const inputElement = document.getElementById('input');
+    const addButton = document.getElementById('addButton');
+    const clearButton = document.getElementById('clearButton');
+    const todoList = document.getElementById('lista');
+
+    addButton.addEventListener('click', () => {
+        const todoText = inputElement.value.trim();
+
+        if (todoText !== "") {
+            const li = document.createElement("li");
+            li.textContent = todoText;
+
+            li.addEventListener("click", () => {
+                todoList.removeChild(li);
+            })
+
+            todoList.appendChild(li);
+            inputElement.value = "";
+        }
+    });
+
+    clearButton.addEventListener('click', () => {
+        todoList.innerHTML = "";
+    });
+</script>
+
+</html>

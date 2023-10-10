@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <h1>Konsolissa on yllätys!</h1>
+    <script>
+        let taulukko = [1, 65, 5, 6, 2];
+
+
+        function tarkista() {
+            let parillinentaulukko = [];
+            for (let i = 0; i < taulukko.length; i++) {
+                if (taulukko[i] % 2 === 0) {
+                    parillinentaulukko.push(taulukko[i])
+                }
+            }
+            return parillinentaulukko;
+        }
+        console.log("Alkuperainen taulukko: " + taulukko)
+        console.log("Parilliset: " + tarkista(taulukko))
+
+    </script>
+</body>
+
+</html>

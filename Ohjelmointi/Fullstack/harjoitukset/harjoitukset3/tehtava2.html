@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <link rel="stylesheet" href="src/styles.css">
+    <meta charset="utf-8" />
+    <title>Kristian Returnbox</title>
+</head>
+
+
+<body>
+    <h1>Kristian Returnbox <br> AD0462</h1>
+    <h1></h1>
+    <div class="card">
+        <h2>Tehtävä 2</h2>
+        <div class="boxt2">
+            <button id="tulostaButton">Tulosta tasoitukset</button>
+            <ul id="hcplist"></ul>
+        </div>
+
+    </div>
+
+
+</body>
+<script>
+    var hcpdata = [{ "name": "Ari", "hcp": 54 },
+    { "name": "Pasi", "hcp": 5 },
+    { "name": "Seppo", "hcp": 20 }];
+
+    var button = document.getElementById("tulostaButton");
+    var hcplist = document.getElementById("hcplist");
+
+    var tulostuksetLisatty = false;
+
+    button.addEventListener("click", function () {
+        if (tulostuksetLisatty) {
+            return;
+        }
+
+        for (var i = 0; i < hcpdata.length; i++) {
+            var item = hcpdata[i];
+            var li = document.createElement("li");
+            li.textContent = item.name + " " + item.hcp;
+            hcplist.appendChild(li);
+        }
+        tulostuksetLisatty = true;
+    });
+
+
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8" />
+    <title>Kristian Returnbox</title>
+</head>
+
+<body>
+    <h1>Kristian Returnbox <br> AD0462</h1>
+    <h1></h1>
+    <div class="card">
+        <h2>Tehtävä 3</h2>
+        <img class="img" src="src/tehtava3.png"></img>
+        <p>Scripti määrittää ensin kaksi funktiota, mutta näitä ei kutsuta vielä, joten nämä skipataan.</p>
+        <p>Scripti suorittaa ensin ensimmäisen console login ja tulostaa "Task1 to execution..."</p>
+        <p>Scripti tämän jälkeen kutsuu execute functiota, ja antaa parametreinä "Task1", aikamääreen ja callbackiksi
+            print.
+        </p>
+        <p>Execute funktio lähettää callbackin funktiolle print, ja parametreinä stringinä "task1" ja toisena integer
+            2000</p>
+        <p>Print funktio ajastaa consolelogin 2000ms päähän ja ensimmäisenä parametrinä tullut stringi asetetaan
+            consolelogin sisälle</p>
+        <p>Sitten tämä jatkuu muiden alapuolella olevien console.logien ja execure-funktion kutsumisella, ja tulostus
+            tapahtuu niin,
+            että logiin tulee ensin kaikki "Task(1)(2) ja (3) to execution..."
+        </p>
+        <p>Tämän jälkeen tulostuu Last code line
+            executed!
+        </p>
+        <p>Ja koska execute("task3" 500, print) tasktime on vain 500ms, tulostuu ensin Task3 finished!</p>
+        <p>Tämän jälkeen kutsumisjärjestyksessä tulostuu Task1 finished ja Task2 finished, koska näillä on yhtäpitkät
+            tasktime (2000ms)</p>
+    </div>
+
+</body>
+
+</html>

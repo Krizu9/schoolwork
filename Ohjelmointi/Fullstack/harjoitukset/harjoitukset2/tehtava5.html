@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+<script>
+    function Person(name, age, phone, email) {
+
+        this.name = name
+        this.age = age
+        this.phone = phone
+        this.email = email
+        this.growAge = () => {
+            this.age++
+        }
+
+    }
+
+    let teemu = new Person("Teemu", 25, "0400521623", "teemu.henkilo@gmail.com")
+    console.log(teemu)
+    teemu.growAge()
+    let henri = new Person("Henri", 55, "0465125962", "henri.henkilo@gmail.com")
+    console.log(henri)
+    henri.growAge()
+    let niilo = new Person("Niilo", 22, "0501212121", "niilo22@gmail.com")
+    console.log(niilo)
+    niilo.growAge()
+
+</script>
+
+<body>
+
+    <h2>Console logissa on yllätys</h2>
+</body>
+
+</html>
