@@ -1,0 +1,7 @@
+C:\Users\kristian\source\repos\Kertaus\Kertaus\bin\Debug\Kertaus.exe.config
+C:\Users\kristian\source\repos\Kertaus\Kertaus\bin\Debug\Kertaus.exe
+C:\Users\kristian\source\repos\Kertaus\Kertaus\bin\Debug\Kertaus.pdb
+C:\Users\kristian\source\repos\Kertaus\Kertaus\obj\Debug\Kertaus.csprojAssemblyReference.cache
+C:\Users\kristian\source\repos\Kertaus\Kertaus\obj\Debug\Kertaus.csproj.CoreCompileInputs.cache
+C:\Users\kristian\source\repos\Kertaus\Kertaus\obj\Debug\Kertaus.exe
+C:\Users\kristian\source\repos\Kertaus\Kertaus\obj\Debug\Kertaus.pdb

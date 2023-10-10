@@ -1,0 +1,14 @@
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit 5\taskit 5\obj\Debug\taskit 5.csprojAssemblyReference.cache
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit 5\taskit 5\obj\Debug\taskit 5.csproj.CoreCompileInputs.cache
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit 5\taskit 5\bin\Debug\taskit 5.exe.config
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit 5\taskit 5\bin\Debug\taskit 5.exe
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit 5\taskit 5\bin\Debug\taskit 5.pdb
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit 5\taskit 5\obj\Debug\taskit 5.exe
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit 5\taskit 5\obj\Debug\taskit 5.pdb
+C:\Users\kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit 5\taskit 5\bin\Debug\taskit 5.exe.config
+C:\Users\kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit 5\taskit 5\bin\Debug\taskit 5.exe
+C:\Users\kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit 5\taskit 5\bin\Debug\taskit 5.pdb
+C:\Users\kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit 5\taskit 5\obj\Debug\taskit 5.csprojAssemblyReference.cache
+C:\Users\kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit 5\taskit 5\obj\Debug\taskit 5.csproj.CoreCompileInputs.cache
+C:\Users\kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit 5\taskit 5\obj\Debug\taskit 5.exe
+C:\Users\kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit 5\taskit 5\obj\Debug\taskit 5.pdb

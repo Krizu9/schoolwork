@@ -1,0 +1,10 @@
+C:\Users\Kristian\Desktop\ohjelmointi\tasohyppelypeli\bin\Debug\tasohyppelypeli.exe.config
+C:\Users\Kristian\Desktop\ohjelmointi\tasohyppelypeli\bin\Debug\tasohyppelypeli.exe
+C:\Users\Kristian\Desktop\ohjelmointi\tasohyppelypeli\bin\Debug\tasohyppelypeli.pdb
+C:\Users\Kristian\Desktop\ohjelmointi\tasohyppelypeli\obj\Debug\tasohyppelypeli.csprojAssemblyReference.cache
+C:\Users\Kristian\Desktop\ohjelmointi\tasohyppelypeli\obj\Debug\tasohyppelypeli.Form1.resources
+C:\Users\Kristian\Desktop\ohjelmointi\tasohyppelypeli\obj\Debug\tasohyppelypeli.Properties.Resources.resources
+C:\Users\Kristian\Desktop\ohjelmointi\tasohyppelypeli\obj\Debug\tasohyppelypeli.csproj.GenerateResource.cache
+C:\Users\Kristian\Desktop\ohjelmointi\tasohyppelypeli\obj\Debug\tasohyppelypeli.csproj.CoreCompileInputs.cache
+C:\Users\Kristian\Desktop\ohjelmointi\tasohyppelypeli\obj\Debug\tasohyppelypeli.exe
+C:\Users\Kristian\Desktop\ohjelmointi\tasohyppelypeli\obj\Debug\tasohyppelypeli.pdb

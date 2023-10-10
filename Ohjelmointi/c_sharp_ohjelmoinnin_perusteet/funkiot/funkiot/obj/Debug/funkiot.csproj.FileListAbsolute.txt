@@ -1,0 +1,7 @@
+C:\Users\Kristian\source\repos\funkiot\funkiot\bin\Debug\funkiot.exe.config
+C:\Users\Kristian\source\repos\funkiot\funkiot\bin\Debug\funkiot.exe
+C:\Users\Kristian\source\repos\funkiot\funkiot\bin\Debug\funkiot.pdb
+C:\Users\Kristian\source\repos\funkiot\funkiot\obj\Debug\funkiot.csprojAssemblyReference.cache
+C:\Users\Kristian\source\repos\funkiot\funkiot\obj\Debug\funkiot.csproj.CoreCompileInputs.cache
+C:\Users\Kristian\source\repos\funkiot\funkiot\obj\Debug\funkiot.exe
+C:\Users\Kristian\source\repos\funkiot\funkiot\obj\Debug\funkiot.pdb

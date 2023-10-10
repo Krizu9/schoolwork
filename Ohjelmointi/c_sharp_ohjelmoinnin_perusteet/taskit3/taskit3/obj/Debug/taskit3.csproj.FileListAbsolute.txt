@@ -1,0 +1,21 @@
+C:\Users\kristian\source\repos\taskit3\taskit3\obj\Debug\taskit3.csproj.CoreCompileInputs.cache
+C:\Users\kristian\source\repos\taskit3\taskit3\bin\Debug\taskit3.exe.config
+C:\Users\kristian\source\repos\taskit3\taskit3\bin\Debug\taskit3.exe
+C:\Users\kristian\source\repos\taskit3\taskit3\bin\Debug\taskit3.pdb
+C:\Users\kristian\source\repos\taskit3\taskit3\obj\Debug\taskit3.exe
+C:\Users\kristian\source\repos\taskit3\taskit3\obj\Debug\taskit3.pdb
+C:\Users\kristian\source\repos\taskit3\taskit3\obj\Debug\taskit3.csprojAssemblyReference.cache
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit3\taskit3\bin\Debug\taskit3.exe.config
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit3\taskit3\bin\Debug\taskit3.exe
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit3\taskit3\bin\Debug\taskit3.pdb
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit3\taskit3\obj\Debug\taskit3.csprojAssemblyReference.cache
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit3\taskit3\obj\Debug\taskit3.csproj.CoreCompileInputs.cache
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit3\taskit3\obj\Debug\taskit3.exe
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\Koodaamisen perusteet\taskit3\taskit3\obj\Debug\taskit3.pdb
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit3\taskit3\bin\Debug\taskit3.exe.config
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit3\taskit3\bin\Debug\taskit3.exe
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit3\taskit3\bin\Debug\taskit3.pdb
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit3\taskit3\obj\Debug\taskit3.csprojAssemblyReference.cache
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit3\taskit3\obj\Debug\taskit3.csproj.CoreCompileInputs.cache
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit3\taskit3\obj\Debug\taskit3.exe
+C:\Users\Kristian\OneDrive - Centria ammattikorkeakoulu Oy\ohjelmoinnin perusteet\taskit3\taskit3\obj\Debug\taskit3.pdb
