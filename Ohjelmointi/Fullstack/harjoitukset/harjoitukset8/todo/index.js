@@ -11,7 +11,7 @@ app.use(cors())
 app.use(express.json())
 
 // mongo here...
-const mongoDB = 'mongodb+srv://vahafullstack:f6ONQpXO0TVvORac@fullstackcluster0.ogr0r9x.mongodb.net/?retryWrites=true&w=majority'
+const mongoDB = 'deleted'
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const db = mongoose.connection
