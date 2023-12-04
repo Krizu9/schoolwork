@@ -8,7 +8,7 @@ const fs = require('fs')
 const mongoose = require('mongoose')
 
 // connection string - EDIT YOUR OWN HERE
-const mongoDB = 'deleted'
+const mongoDB = 'mongodb+srv://vahafullstack:f6ONQpXO0TVvORac@fullstackcluster0.ogr0r9x.mongodb.net/?retryWrites=true&w=majority'
 
 // connect mongodb
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
