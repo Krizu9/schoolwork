@@ -1,0 +1,95 @@
+body {
+    background-image: url("background.jpg")
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    text-shadow: 2px 2px 5px black;
+}
+
+h2 {
+    color: white;
+    text-align: 20px;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    text-shadow: 3px 3px 5px black;
+}
+
+.links {
+    color: white;
+    text-align: center;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    text-shadow: 2px 2px 5px black;
+    cursor: pointer;
+}
+
+.card {
+    background-color: #c0a0a0;
+    color: white;
+    text-align: center;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    text-shadow: 2px 2px 5px black;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding-bottom: 20px;
+    transition: 0.5s;
+    opacity: 100%;
+    margin-bottom: 1rem;
+}
+
+
+
+.boxt1 {
+    margin: 25px auto;
+    width: 1700px;
+    background-color: white;
+    color: black;
+    text-shadow: none;
+    transition: none;
+    padding-bottom: none;
+    text-shadow: none;
+    border-radius: none;
+    margin-bottom: none;
+
+}
+
+#houses {
+    width: 850px;
+    height: 800px;
+    text-align: left;
+    overflow: auto;
+    margin: 10px;
+}
+
+.houseContainer {
+    display: block;
+    border: 1px solid #CCCCCC;
+    width: 800px;
+    height: 190px;
+    font-family: "mieli";
+    font-size: 12px;
+    margin: 2px;
+    padding: 2px;
+}
+
+.houseImage {
+    width: 225px;
+    height: 180px;
+    float: left;
+    margin: 2px;
+}
+
+p.header {
+    font-size: 25px;
+    font-style: bold;
+}
+
+p.text {
+    font-size: 15px;
+}
+
+
+p::selection {
+    background-color: aqua;
+}
