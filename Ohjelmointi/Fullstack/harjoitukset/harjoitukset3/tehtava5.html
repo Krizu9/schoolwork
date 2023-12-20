@@ -7,14 +7,43 @@
     <title>Kristian Returnbox</title>
 </head>
 <script>
+
+    function getColor() {
+        var color = document.getElementById("colors").value;
+        document.getElementById('valittu').innerText = "Valittu: " + color;
+        document.getElementById("tulosalue").style.background = color;
+    }
+    function updateField() {
+        var juhlaa = document.getElementById("juhlaIn").value;
+        document.getElementById('juhla').innerText = juhlaa;
+    }
 </script>
 
 <body>
     <h1>Kristian Returnbox <br> AD0462</h1>
     <h1></h1>
     <div class="card">
+        <div class="box5">
 
+            <div class="settings">
+                <p>Valitse juhlaväri:</p>
+                <select name="colors" id="colors">
+                    <option value="#FFFF00">keltainen</option>
+                    <option value="#0000FF">sininen</option>
+                    <option value="#008000">vihreä</option>
+                    <option value="#ff0000">punainen</option>
+                </select>
+                <p>Mikä juhla?</p>
+                <input type="text" id="juhlaIn" name="juhlaIn" onkeyup="updateField()">
 
+            </div>
+            <button onClick="getColor()" class="button5">Vaihda valittu taustaväri</button>
+            <div id="tulosalue" class="tulosalue">
+                <h2 style="color:black; text-shadow: none;">Tulostusalue</h2>
+                <p id="valittu">Valittu:</p>
+                <p id="juhla">Juhla</p>
+            </div>
+        </div>
     </div>
 
 </body>

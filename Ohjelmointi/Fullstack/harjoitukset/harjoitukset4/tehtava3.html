@@ -6,16 +6,35 @@
     <meta charset="utf-8" />
     <title>Kristian Returnbox</title>
 </head>
-<script>
-</script>
+<script src="src/tehtava3.js"></script>
 
 <body>
     <h1>Kristian Returnbox <br> AD0462</h1>
     <h1></h1>
     <div class="card">
+        <h2>Tehtävä 3</h2>
+        <div class="boxt3">
+            <h2 style="color:black; text-shadow: none;">Nimet: <br>Aava,
+                Aamu,
+                Anni,
+                Ari,
+                Eeva,
+                Eero,
+                Esa,
+                Kari,
+                Kalle,
+                Paavo,
+                Pasi<br> Esc tyhjentää kaiken <br> Nuolinäppäimillä voit valita listasta ja enteriä painamalla voit
+                valita nimen</h2>
+            <h1>Fetch API - SearchForm</h1>
 
-
+            <form id="name" autocomplete="off" onkeydown="return event.key != 'Enter';">
+                <input onkeyup="renderNames()" type="text" id="haku" placeholder="Anna nimi">
+            </form>
+            <div class="tulokset" id="tulokset"></div>
+        </div>
     </div>
+
 
 </body>
 

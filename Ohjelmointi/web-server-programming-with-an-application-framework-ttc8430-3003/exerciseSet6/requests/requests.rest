@@ -1,0 +1,37 @@
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoia3Jpc3RpYW4iLCJpZCI6IjY1NzBlOGUzZWE5YjE5ODgwMzI2MmNlMCIsImlhdCI6MTcwMTkwMTYxMCwiZXhwIjoxNzAxOTg4MDEwfQ.MTUtLCdVZ_9TZP2imK-_ihFwvnhb8-Mmp5ASBI-bEBc
+
+### tulostaa albumit
+GET http://localhost:5001/albums?user=admin
+
+### tulostaa ensimmäisen albumin
+GET http://localhost:5001/albums/1?
+
+###
+POST http://localhost:5001/albums
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "artist": "avenged sevenfolssddddddddddd",
+  "title": "avenged sevenfold",
+  "year": 2007,
+  "genre": "genre",
+  "tracks": 10
+}
+
+###
+DELETE http://localhost:5001/albums/2
+
+### 
+PUT http://localhost:5001/albums/5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoia3Jpc3RpYW4iLCJpZCI6IjY1NzBlOGUzZWE5YjE5ODgwMzI2MmNlMCIsImlhdCI6MTcwMjMwOTkwNCwiZXhwIjoxNzAyMzk2MzA0fQ.nTd3IEOBtjzyLy1NF9tXHSvX_MVm9zlEii3G3AA5bxY
+
+{
+  "artist": "alls2ss",
+  "title": "overscome",
+  "year": 20208,
+  "genre": "metdaalcore",
+  "tracks": 121
+}

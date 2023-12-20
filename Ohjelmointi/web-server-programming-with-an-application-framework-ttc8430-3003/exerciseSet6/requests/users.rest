@@ -1,0 +1,43 @@
+### tulostaa albumit
+GET http://localhost:5001/albums?user=admin
+
+### tulostaa ensimmäisen albumin
+GET http://localhost:5001/register
+
+@token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoia3Jpc3RpYW4iLCJpZCI6IjY1NzBlOGUzZWE5YjE5ODgwMzI2MmNlMCIsImlhdCI6MTcwMTkwMTYxMCwiZXhwIjoxNzAxOTg4MDEwfQ.MTUtLCdVZ_9TZP2imK-_ihFwvnhb8-Mmp5ASBI-bEBc"
+
+###
+POST http://localhost:5001/register
+content-type: application/json
+
+{
+  "name": "kristian",
+  "email": "kristian@gooooogle.com",
+  "password": "password",
+  "passwordConfirmation": "passwoord"
+}
+
+### login
+POST http://localhost:5001/login
+content-type: application/json
+
+{
+  "name": "kristian",
+  "password": "password"
+}
+
+###
+DELETE http://localhost:5001/albums/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoia3Jpc3RpYW4iLCJpZCI6IjY1NzBlOGUzZWE5YjE5ODgwMzI2MmNlMCIsImlhdCI6MTcwMjMwOTkwNCwiZXhwIjoxNzAyMzk2MzA0fQ.nTd3IEOBtjzyLy1NF9tXHSvX_MVm9zlEii3G3AA5bxY
+
+### 
+PUT http://localhost:5001/albums/5?user=admin
+Content-Type: application/json
+
+{
+  "artist": "alls2ss",
+  "title": "overscome",
+  "year": 20208,
+  "genre": "metdaalcore",
+  "tracks": 121
+}

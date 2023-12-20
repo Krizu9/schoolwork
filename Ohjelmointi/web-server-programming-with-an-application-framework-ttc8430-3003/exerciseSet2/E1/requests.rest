@@ -1,0 +1,32 @@
+### tulostaa albumit
+GET http://localhost:5001/albums?user=admin
+
+### tulostaa ensimmäisen albumin
+GET http://localhost:5001/albums/1?user=admin
+
+###
+POST http://localhost:5001/albums?user=admin
+content-type: application/json
+
+{
+"artist": "bbbbbbbbbbaa",
+"title": "avenged sevenfold",
+"year": 2007,
+"genre": "genre",
+"tracks": 10
+}
+
+###
+DELETE http://localhost:5001/albums/2?user=admin
+
+### 
+PUT http://localhost:5001/albums/5?user=admin
+Content-Type: application/json
+
+{
+  "artist": "alls2ss",
+  "title": "overscome",
+  "year": 20208,
+  "genre": "metdaalcore",
+  "tracks": 121
+}
