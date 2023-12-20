@@ -1,0 +1,233 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    scroll-behavior: smooth;
+}
+
+.masthead {
+    position: relative;
+    min-height: 60vh;
+    color: white;
+}
+
+.masthead::after {
+    content: "";
+    background-image: url(./pictures/background.jpg);
+    background-size: cover;
+    background-position: center center;
+    filter: brightness(80%);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-image: url(./pictures/question.jpg);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    padding-bottom: 50px;
+}
+
+
+
+.mastheadContent {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    position: flex;
+    text-align: center;
+}
+
+.profPic {
+    padding-top: 2rem;
+    border-radius: 20%;
+    max-width: 40rem;
+    width: 80%
+}
+
+h3 {
+    color: white;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-shadow:
+        1px 1px 2px black,
+        0 0 1em blue,
+        0 0 0.2em blue;
+}
+
+h4 {
+    color: white;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    font-size: 7rem;
+    text-shadow:
+        1px 1px 2px black,
+        0 0 1em blue,
+        0 0 0.2em blue;
+}
+
+.navbar-custom {
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    color: aliceblue !important;
+    text-decoration: none;
+    text-align: center;
+}
+
+#preloader {
+    background: #000 url(./pictures/loading.gif) no-repeat center center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+}
+
+.card {
+    padding-top: 1rem;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+.expCard {
+    padding-top: 1rem;
+    margin: 0.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.expCard h2 {
+    font-size: 1.4rem;
+}
+
+.experienceContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.workContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.schoolContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    background-image: url(./pictures/contact_small.jpg);
+    height: 800px;
+    width: 800px;
+    background-size: cover;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.7);
+}
+
+.phoneNumber {
+    color: white;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-shadow:
+        1px 1px 2px black,
+        0 0 1em blue,
+        0 0 0.2em blue;
+    font-size: 3rem;
+}
+
+.email {
+    color: white;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-shadow:
+        1px 1px 2px black,
+        0 0 1em blue,
+        0 0 0.2em blue;
+    font-size: 2rem;
+}
+
+.contactContainer {
+    background-color: chocolate;
+}
+
+#linkedIn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#gitHub {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .cardContainer {
+        justify-content: center;
+    }
+
+    .expCard {
+        font-size: 1rem;
+    }
+
+    .expCard h3 {
+        font-size: 1.2rem;
+    }
+
+    .expCard h2 {
+        font-size: 1.1rem;
+    }
+
+    .contact {
+        height: 25rem;
+        width: 100%
+    }
+
+    .email {
+        font-size: 1.5rem;
+    }
+
+    .phoneNumber {
+        font-size: 2rem;
+    }
+
+    #linkedIn {
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    #gitHub {
+        font-size: 16px;
+        cursor: pointer;
+    }
+}

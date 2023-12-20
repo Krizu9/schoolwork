@@ -1,0 +1,462 @@
+\documentclass[english]{jamk-report}
+
+% -------------------- Start preamble -------------------- %
+
+%%% Document information
+
+% You may ignore or delete the commands ending in "fi" if you don't need a Finnish abstract page
+
+% Title
+\title{AAAAAAAAAAA \LaTeX\ TÄTÄ ON MUOKATTU}
+
+% Authors: separate authors with a comma (,)
+\author{Tuomo Sipola, Niko Ålander, Karo Saharinen, Samir Puuska, Marko Silokunnas}
+
+% Level: either "Bachelor's thesis" or "Master's thesis"
+% In Finnish, either "Opinnäytetyö AMK" or "Opinnäytetyö YAMK"
+\level{Bachelor's thesis}
+\levelfi{Opinnäytetyö AMK}
+
+% Let this be here, if you have authorized web publication
+% Delete or commment out the line below, if you don't want to give web publication permission 
+\webpublicationpermission
+
+% Field of studies, most likely "Information and Communication Technology" 
+\field{Information and Communication Technology}
+\fieldfi{Tietojenkäsittely ja tietoliikenne}
+
+% Degree programme
+\programme{Degree Programme in Information and Communication Technology}
+\programmefi{Tieto- ja viestintätekniikan tutkinto-ohjelma}
+
+% Document language
+\documentlanguage{English}
+\documentlanguagefi{englanti}
+
+% Set the date in format YYYY-MM-DD
+% If not set, it uses the current date
+%\date{1643-01-04}
+
+% Abstract
+\abstract{
+When completing this form, start from this field, on the row under the instructions, so that the font size remains 11.
+
+The basic structure of the abstract is as follows:
+
+\begin{itemize}
+    \item background
+    \item task and objectives
+    \item implementation method
+    \item results
+    \item conclusions.
+\end{itemize}
+
+In other words, the abstract summarises the work that has been done – not the content of the report. If there is room, the content of the report may be briefly mentioned.
+The entire space reserved for the abstract must be used.
+The abstract should be written in the past tense and with a passive voice. The text must not refer to the thesis, i.e., the words ‘this thesis’ must not be used.
+} % end abstract
+
+% Finnish abstract: Feel free to delete this if you don't need it
+\abstractfi{
+Aloita tiivistelmän kirjoittaminen tästä. Tiivistelmän perusrakenne on seuraava:
+
+\begin{itemize}
+    \item tausta, tehtävä ja tavoitteet
+    \item toteutustapa
+    \item tulokset
+    \item johtopäätökset
+\end{itemize}
+        
+Tiivistelmä tiivistää siis tehdyn työn - ei raportin sisältöä. Jos tilaa jää, voi lyhyesti mainita raportin sisällöstä.
+Koko tiivistelmälle varattu tila tulee käyttää.
+Tiivistelmä kirjoitetaan imperfektissä ja passiivissa. Tekstissä ei saa viitata opinnäytetyöhön eli ei saa käyttää sanoja "tämä työ".
+
+} % end abstractfi
+
+% Keywords
+\keywords{See Project Reporting Instructions, section 4.1.2}
+\keywordsfi{Ks. raportointiohje luku 4.1.2}
+
+% Miscellaneous
+\miscinfo{For example, the confidentiality marking of the thesis appendix, see Project Reporting Instructions, section 4.1.2}
+\miscinfofi{Esim. opinnäytetyön liitteen salassapitoperuste, ks. raportointiohjeen luku 4.1.2}
+
+% Bibliography file
+\addbibresource{refs.bib}
+
+% List of acronyms:
+\DeclareAcronym{tcp}{
+  short = TCP ,
+  long  = Transmission Control Protocol ,
+  tag = acro
+}
+
+% -------------------- Preamble ends -------------------- %
+
+% ------------------- Document starts ------------------- %
+
+\begin{document}
+
+
+
+%%% FRONTMATTER
+
+% These elements are mandated by the template
+% The only thing you might need to delete is the Finnish abstract page
+
+% Start Roman page numbering
+\frontmatter
+
+% Title page
+\maketitle
+
+% Abstract pages
+% Delete or comment out if you don't need the Finnish one
+% Change their order if necessary, or delete both if not needed
+\abstractpage
+\abstractpagefi
+
+%%% MAINMATTER
+
+% Clear page, start Arabic page numbering
+\mainmatter
+
+% Deleting the lines below will remove parts of the document if they are not needed
+\tableofcontents  % Include table of contents
+
+% Deleting the lines below will remove parts of the document if they are not needed
+\listoffigures    % Include list of figures
+\listoftables     % Include list of tables
+
+\clearpage
+
+% Acronym page - remove lines below if not needed
+\addcontentsline{toc}{section}{Acronyms}
+\printacronyms[include=acro,name=Acronyms]
+
+\clearpage
+
+
+
+%%% CONTENTS OF THE THESIS
+
+\section{Introduction}
+
+\textbf{NOTICE! THIS DOCUMENTATION IS OUTDATED.} You can still use the thesis class, as you can just fill in the details in the preamble and then write your thesis below.
+
+Latex is a powerful system for creating professional looking documents, such as reports, thesis's, and
+scientific papers.
+
+This document strives to both help you in creating documents with \LaTeX, %https://oppimateriaalit.jamk.fi/raportointiohje/
+as well as serve as a template that you can easily adjust to your needs.
+This document follows the official JAMK report instructions as closely
+as it is practical. Nevertheless, if your class or instructor requires
+specific style, you may have to adjust this template. The font selection
+is motivated by the on-screen readability factors; text hinting has
+been confirmed to work in Adobe Acrobat and several Linux PDF readers.
+
+The full template consists of three separate files: \texttt{template.tex}
+is the main TeX file, where you produce your text. All document specific
+options are adjustable in this file. \texttt{jamk-report.cls}
+is the class file, that provides the basic report style. In most use cases there should be
+no reason to adjust the template directly. Finally, \texttt{refs.bib} contains
+an example bibliography in bibtex format. You should add your bibtex entries to this file.
+
+While much work has been done to keep necessary adjustments minimal for
+standard usage, there are still minor manual tweaks required if the user
+wishes to change language. Some packages, such as the \texttt{acro} package,
+do not support automatic localization. These exceptions are documented in the
+\texttt{template.tex} file. This template currently supports Finnish and English.
+
+
+\section{General Document Structure}
+
+The first page of the JAMK report format is the title page. It has all the
+elements one might expect to find on a title page, i.e. the title, author,
+document type, and other descriptors. You should change these variables
+in \texttt{template.tex} file.
+
+\subsection{Class Options}
+
+This template is based on the standard \texttt{article} class. The only option
+that users should adjust is the language, by changing the documentclass entry
+to desired option.
+
+\begin{verbatim}
+\documentclass[english]{jamk-report}
+\end{verbatim}
+
+\noindent
+Paper sizes other than A4 are not supported. It is not advisable to adjust text
+size from the default 11p, although the package supports also 10p.
+
+\subsection{Document Variables}
+
+The template requires that the user sets certain variables, such as the title,
+name of the author, and document type. In addition, if the user wishes to use
+the \texttt{acro} environment for managing the abbreviations and acronyms, these
+must also be declared at the document preamble. Table~\ref{table:vars} lists
+the variables and their use.
+
+
+
+\begin{table}[h]\centering
+\ra{1.3}
+    \begin{tabularx}{\textwidth-1em}{p{6em}l>{\raggedleft\arraybackslash}X} \toprule
+        Variable & Purpose & Mandatory  \\ \midrule
+        \texttt{title} & The main title & Yes \\
+        \texttt{author} & The author(s) & Yes \\
+        \texttt{date} & Date of e.g. acceptance & Yes \\
+        \texttt{level} & Document type, e.g. thesis or report & Yes \\
+        \texttt{abstract} & The abstract & When description pages enabled \\
+        \texttt{supervisors} & Supervisors of e.g. for thesis & No \\
+        \texttt{assigned} & If assigned by a third party & No \\
+
+        \bottomrule
+    \end{tabularx}
+\caption{List of variables that describe different aspects of the document.}
+\label{table:vars}
+\end{table}
+
+
+\subsection{Sectioning and Structure}
+
+The template uses standard convention for sectioning, i.e. 
+
+\begin{verbatim}
+\section{First Level}
+\subsection{Second Level}
+\subsubsection{Third Level}
+\end{verbatim}
+
+\noindent
+As expected, the table of contents is generated automatically. This template creates
+the list of figures, tables, and abbreviations by default. If you wish not to include
+these sections, you can comment them out in the latex source.
+
+\section{Tables and Images}
+
+
+This section covers the basics of using both tables and images. It is likely
+that you may need to adjust or alter the default parameters to suit your
+specific need. In general, you should use search
+engines to find what solutions others have used. It is likely that
+what you are attempting to do has already been done.
+
+\subsection{Tables}
+
+Tables are an art form. It is generally advisable to omit as much lines
+as possible while maintaining clarity. Table~\ref{table:web} is an example,
+where spacing is used to separate the items. 
+
+\begin{table}[h]\centering
+\ra{1.3}
+    \begin{tabularx}{\textwidth-1em}{llc} \toprule
+        Abbreviation & Technology & Organization  \\ \midrule
+        HTML 5.1 & Hypertext Markup Language & W3C \\
+        CSS  & Cascading Style Sheets & W3C  \\
+        HTTP/1.1& Hypertext Transfer Protocol &  IETF \\
+        TLS 1.1 & Transport Layer Security & IETF \\
+        JSON & JavaScript Object Notation & IETF \\
+        ES & ECMAScript & Ecma International \\
+        \bottomrule
+    \end{tabularx}
+\caption{Web standards and governing standardization organizations.}
+\label{table:web}
+\end{table}
+
+\noindent
+In many cases the example table is not adequate for your data. The table
+may prove to be too narrow for large datasets. In cases like these you
+should consider moving the table to a separate page, and changing the
+orientation to landscape. For this you can try e.g. \texttt{sidewaystable} 
+from the \texttt{rotating} package. There is also a package, \texttt{pdflscape}, that automatically
+orients a single PDF page to landscape mode in PDF readers.
+
+
+\subsection{Images}
+
+Latex supports almost every common image and vector format with appropriate 
+packages. Vector formats such as \texttt{.eps} or \texttt{.pdf} (with an embedded vector image)
+are highly recommended.
+
+For pictures that can not be vectorized, \texttt{.png} format is recommended. You
+may also use \texttt{.jpeg} for photographs. Note, that if you require accurate
+reproduction of colors in print, you may need to use CMYK colors, and worry about different gamuts.
+
+\section{Mathematics}
+
+Latex supports mathematic equations. Here are a few examples.
+
+\begin{eqnarray}
+    u_\alpha & = & \epsilon^2 \kappa_{xxx} 
+    \left( y-\frac{1}{2}y^2 \right),
+    \label{equ}  \\
+    v & = & \epsilon^3 \kappa_{xxx} y\,,
+    \label{eqv}  \\
+    p & = & \epsilon \kappa_{xx}\,.
+    \label{eqp}
+\end{eqnarray}
+
+\begin{eqnarray}
+    \omega_1 & = &
+    \frac{\partial w}{\partial y}-\frac{\partial v}{\partial z}\,,
+    \nonumber  \\
+    \omega_2 & = & 
+    \frac{\partial u}{\partial z}-\frac{\partial w}{\partial x}\,,
+    \label{eqcurl}  \\
+    \omega_3 & = & 
+    \frac{\partial v}{\partial x}-\frac{\partial u}{\partial y}\,.
+    \nonumber
+\end{eqnarray}
+
+\section{Citations, Abbreviations, and Bibliography}
+
+Here's a test picture.
+
+\jamkfigure[2in]{src/img/test.png}{Test caption}{fig:dice}
+
+Let's reference the test picture! Picture \ref{fig:dice} is a picture of
+dice! 
+
+If you didn't know, there are a lot of different types of dices. Table \ref{table:dicetypes} contains information about different kinds of dice!
+
+\begin{table}[h]\centering
+\ra{1.3}
+    \begin{tabularx}{\textwidth-1em}{llc} \toprule
+        \textbf{Type} & \textbf{Number of sides} & \textbf{Usage} \\ \midrule
+        D4 & 4 & Tabletop RPGs \\
+        D6 & 6 & Gambling, games... \\
+        D10 & 10 & Tabletop RPGs \\
+        D20 & 20 & Tabletop RPGs \\
+        D100 & 100 & Tabletop RPGs \\
+        \bottomrule
+    \end{tabularx}
+\caption{information
+about different kinds of dice}
+\label{table:dicetypes}
+\end{table}
+
+Let's cite a reference without any additional information: ~\cite{einstein}
+
+Let's cite a reference some additional information (e.g. page number): ~\parencite[32]{einstein}
+
+Someone might want to reference a acronym e.g. \ac{tcp} (see .tex file for details)
+
+\subsection{lorem ipsum}
+
+Suspendisse consequat lectus urna, vel hendrerit tortor euismod quis. Aliquam
+diam urna, rhoncus at suscipit nec, pellentesque sed tellus. Fusce auctor
+dignissim purus vel maximus. Morbi faucibus, lectus eget tempor posuere, tellus
+ex imperdiet nibh, sed ultricies risus diam vitae nisi. Sed sed augue
+malesuada, fringilla sem rutrum, molestie erat.  Phasellus non fringilla ex.
+Integer eu lacinia est. Mauris commodo arcu eu consectetur condimentum. Donec
+at ipsum at nisl blandit commodo a vitae nulla.  Quisque luctus sit amet turpis
+vitae auctor. Nunc blandit metus ligula, nec auctor tortor sollicitudin et.
+Nullam tristique efficitur ipsum, vel laoreet sapien lobortis at. Ut aliquet,
+nulla id lobortis scelerisque, neque ante hendrerit turpis, vitae maximus sem
+neque quis felis. Ut metus ante, sodales eu tincidunt eu, lobortis id mauris.
+
+\subsubsection{more lorem ipsum}
+
+Suspendisse consequat facilisis lacus, eget varius neque. Mauris blandit id
+tellus vel consectetur. Integer porta tempor arcu, quis sodales urna posuere a.
+Phasellus a lacinia dolor. Nam nec dui massa. Praesent vestibulum purus ac
+felis volutpat vehicula. Sed sem nisl, hendrerit id gravida at, condimentum
+hendrerit massa.  Maecenas vitae erat laoreet, semper enim sit amet,
+condimentum ipsum.~\parencite{Puuska_2019,Haar_1910,Sipola_2020}
+
+Donec at porttitor nibh. Suspendisse feugiat consequat ornare.  Mauris varius
+porttitor libero ut facilisis. Pellentesque quis eros eros. Donec quis cursus
+lorem. In eget diam felis. Sed dictum, tellus bibendum dictum commodo, ligula
+felis semper nisl, ac molestie magna lacus vitae turpis. In volutpat nunc at
+finibus vehicula. Vestibulum pretium at nibh in tempor. Cras sed mi sit amet
+orci scelerisque mollis. Donec aliquet laoreet augue, ut malesuada massa semper
+a. Suspendisse ac mi luctus, fringilla odio pellentesque, congue lorem.
+Curabitur varius nunc eu elit mattis, sed gravida urna hendrerit. Duis eget
+enim eget massa faucibus finibus. Suspendisse potenti. Interdum et malesuada
+fames ac ante ipsum primis in faucibus.
+
+
+
+%%% BACKMATTER
+
+\clearpage
+
+\printbibliography 
+
+\clearpage
+
+\appendix
+
+\section*{Appendices}
+\addcontentsline{toc}{section}{Appendices}
+
+\subsection*{Appendix 1. Some text}
+
+Instead of the boring and nonsensical lorem ipsum text, these appendices 
+contain a few select fables by the ancient author Phaedrus.
+
+\paragraph{Vulpes et Corvus}
+Quae se laudari gaudent verbis subdolis,
+serae dant poenas turpi paenitentia.
+Cum de fenestra corvus raptum caseum
+comesse vellet, celsa residens arbore,
+vulpes invidit, deinde sic coepit loqui:
+`O qui tuarum, corve, pinnarum est nitor!
+Quantum decoris corpore et vultu geris!
+Si vocem haberes, nulla prior ales foret'.
+At ille, dum etiam vocem vult ostendere,
+lato ore emisit caseum; quem celeriter
+dolosa vulpes avidis rapuit dentibus.
+Tum demum ingemuit corvi deceptus stupor. 
+(Phaedr. 1.8)
+
+\paragraph{Serpens Misericordi Nociua}
+Qui fert malis auxilium, post tempus dolet.
+Gelu rigentem quidam colubram sustulit
+sinuque fouit, contra se ipse misericors;
+namque, ut refecta est, necuit hominem protinus.
+Hanc alia cum rogaret causam facinoris,
+respondit: ``Ne quis discat prodesse improbis.''
+(Phaedr. 4.20)
+
+
+
+\clearpage
+
+\subsection*{Appendix 2. Some text}
+
+\paragraph{Vulpis et Draco}
+Vulpes cubile fodiens dum terram eruit
+agitque pluris altius cuniculos,
+peruenit ad draconis speluncam ultimam,
+custodiebat qui thesauros abditos.
+Hunc simul aspexit: ``Oro ut inprudentiae
+des primum ueniam; deinde si pulchre uides
+quam non conueniens aurum sit uitae meae,
+respondeas clementer: quem fructum capis
+hoc ex labore, quodue tantum est praemium
+ut careas somno et aeuum in tenebris exigas?''
+``Nullum'' inquit ille, ``uerum hoc ab summo mihi
+Ioue adtributum est.'' ``Ergo nec sumis tibi
+nec ulli donas quidquam?'' ``Sic Fatis placet.''
+``Nolo irascaris, libere si dixero:
+dis est iratis natus qui est similis tibi.''
+Abiturus illuc quo priores abierunt,
+quid mente caeca miserum torques spiritum?
+Tibi dico, auare, gaudium heredis tui,
+qui ture superos, ipsum te fraudas cibo,
+qui tristis audis musicum citharae sonum,
+quem tibiarum macerat iucunditas,
+obsoniorum pretia cui gemitum exprimunt,
+qui dum quadrantes aggeras patrimonio
+caelum fatigas sordido periurio,
+qui circumcidis omnem inpensam funeris,
+Libitina ne quid de tuo faciat lucri.
+(Phaedr. 4.21)
+
+\clearpage
+
+\end{document}
+

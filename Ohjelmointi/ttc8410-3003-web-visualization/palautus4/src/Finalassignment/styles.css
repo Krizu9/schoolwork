@@ -1,0 +1,328 @@
+.navbar-custom {
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    font-feature-settings: "aalt" !important;
+    font-stretch: normal !important;
+    font-variant-numeric: normal !important;
+    font-variation-settings: "wght" 600 !important;
+    text-wrap: normal !important;
+    color: aliceblue !important;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: webpagefont;
+    src: url(./Barlow/Barlow-ExtraLightItalic.ttf);
+}
+
+.background {
+    font-family: webpagefont;
+    background-color: #f0f0f0;
+}
+
+.background::before {
+    content: '';
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 60vw 100vw;
+    border-color: transparent transparent #3498db transparent;
+    z-index: 0;
+    transform: translateY(var(--triangle-translate-y, 0));
+}
+
+
+@media screen and (max-width: 399px) {
+    .background::before {
+        border-width: 0 0 500vw 100vw;
+        top: 60px;
+    }
+
+    .products-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-card {
+        width: 200px !important;
+        padding-left: 0;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 768px) {
+    .background::before {
+        border-width: 0 0 250vw 100vw;
+        top: 60px;
+    }
+
+    .navbar-custom {
+        font-size: 18px;
+    }
+
+    .products-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-card {
+        width: 380px !important;
+        box-sizing: content-box;
+        padding-left: 0;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .background::before {
+        border-width: 0 0 100vw 100vw;
+        top: 60px;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+    .background::before {
+        border-width: 0 0 80vw 100vw;
+        top: 60px;
+    }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1668px) {
+    .background::before {
+        border-width: 0 0 60vw 100vw;
+        top: 60px;
+    }
+}
+
+
+
+.speaker-form-header {
+    text-align: center;
+    background-color: #F6F7F8;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+
+    width: 80%;
+    margin: 40px 0;
+    padding: 50px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.speaker-form-header h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+
+}
+
+.speaker-form {
+    background-color: #F6F7F8;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+
+    width: 80%;
+    padding: 50px;
+    margin: 0 0 40px 0;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.form-row {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.form-row input[type='text'],
+.form-row input[type='email'] {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    width: 100%;
+    padding: 7px;
+    font-size: 14px;
+}
+
+.form-row label {
+    margin-bottom: 15px;
+}
+
+.form-row input[type='text']:invalid,
+.form-row input[type='email']:invalid {
+    border: 1px solid #D55C5F;
+    color: #D55C5F;
+    box-shadow: none;
+}
+
+.legacy-form-row {
+    border: none;
+    margin-bottom: 40px;
+}
+
+.legacy-form-row legend {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.legacy-form-row .radio-label {
+    display: block;
+    font-size: 14px;
+    padding: 0 20px 0 10px;
+}
+
+.legacy-form-row input[type='radio'] {
+    margin-top: 2px;
+}
+
+.legacy-form-row .radio-label,
+.legacy-form-row input[type='radio'] {
+    float: left;
+}
+
+.form-row select {
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.form-row textarea {
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+
+    min-height: 200px;
+    margin-bottom: 10px;
+    padding: 7px;
+    resize: none;
+}
+
+.form-row .instructions {
+    color: #999999;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.form-row .checkbox-label {
+    margin-bottom: 0;
+}
+
+.form-row button {
+    font-size: 16px;
+    font-weight: bold;
+
+    color: #FFFFFF;
+    background-color: #5995DA;
+
+    border: none;
+    border-radius: 3px;
+
+    padding: 10px 40px;
+    cursor: pointer;
+}
+
+.form-row button:hover {
+    background-color: #76AEED;
+}
+
+.form-row button:active {
+    background-color: #407FC7;
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+.products-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.products-container:hover {
+    cursor: pointer;
+}
+
+.product-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.product-card img {
+    height: 300px;
+    width: 100%;
+    margin: auto;
+    display: block;
+    margin-bottom: 10px;
+    object-fit: scale-down;
+}
+
+.product-card h2,
+.product-card p {
+    text-align: center;
+}
+
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 200px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-container h2 {
+    font-size: 23px;
+}
+
+.info-container h1 {
+    font-size: 70px;
+}
+
+.info-container p {
+    font-size: 20px;
+}

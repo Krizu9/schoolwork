@@ -1,0 +1,30 @@
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.a,
+.b,
+.c,
+.d {
+    transition: fill 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55), transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.a:hover,
+.b:hover,
+.c:hover,
+.d:hover {
+    fill: #800000;
+    transform: translate(60px, 60px);
+
+}
+
+.a:active,
+.b:active,
+.c:active,
+.d:active {
+    fill: #440000;
+}

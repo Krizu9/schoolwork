@@ -1,0 +1,23 @@
+.header {
+    width: 100%;
+    height: 70px;
+    background-color: green;
+    text-align: center;
+    padding-top: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.linkbox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    font-weight: bold;
+    color: black;
+}
+
+.links {
+    text-decoration: none;
+    color: inherit;
+}

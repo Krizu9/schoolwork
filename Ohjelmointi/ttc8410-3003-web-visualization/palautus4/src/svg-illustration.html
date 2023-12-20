@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+    <title>Kristian - Web Visualization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .test {
+            color: #5D6063;
+            background-color: #EAEDF0;
+            font-family: "Helvetica", "Arial", sans-serif;
+            font-size: 16px;
+            line-height: 1.3;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .navbar-custom {
+            font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            font-style: normal !important;
+            font-variant: normal !important;
+            font-feature-settings: "aalt" !important;
+            font-stretch: normal !important;
+            font-variant-numeric: normal !important;
+            font-variation-settings: "wght" 600 !important;
+            text-wrap: normal !important;
+            color: aliceblue !important;
+            text-decoration: none;
+        }
+
+        .speaker-form-header {
+            text-align: center;
+            background-color: #F6F7F8;
+            border: 1px solid #D6D9DC;
+            border-radius: 3px;
+
+            width: 80%;
+            margin: 40px 0;
+            padding: 50px;
+        }
+
+        .speaker-form-header h1 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .speaker-form {
+            background-color: #F6F7F8;
+            border: 1px solid #D6D9DC;
+            border-radius: 3px;
+
+            width: 80%;
+            padding: 50px;
+            margin: 0 0 40px 0;
+        }
+
+        .form-row {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        .form-row input[type='text'],
+        .form-row input[type='email'] {
+            background-color: #FFFFFF;
+            border: 1px solid #D6D9DC;
+            border-radius: 3px;
+            width: 100%;
+            padding: 7px;
+            font-size: 14px;
+        }
+
+        .form-row label {
+            margin-bottom: 15px;
+        }
+
+        .form-row input[type='text']:invalid,
+        .form-row input[type='email']:invalid {
+            border: 1px solid #D55C5F;
+            color: #D55C5F;
+            box-shadow: none;
+        }
+
+        .legacy-form-row {
+            border: none;
+            margin-bottom: 40px;
+        }
+
+        .legacy-form-row legend {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .legacy-form-row .radio-label {
+            display: block;
+            font-size: 14px;
+            padding: 0 20px 0 10px;
+        }
+
+        .legacy-form-row input[type='radio'] {
+            margin-top: 2px;
+        }
+
+        .legacy-form-row .radio-label,
+        .legacy-form-row input[type='radio'] {
+            float: left;
+        }
+
+        .form-row select {
+            width: 100%;
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        .form-row textarea {
+            font-family: "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+
+            border: 1px solid #D6D9DC;
+            border-radius: 3px;
+
+            min-height: 200px;
+            margin-bottom: 10px;
+            padding: 7px;
+            resize: none;
+        }
+
+        .form-row .instructions {
+            color: #999999;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .form-row .checkbox-label {
+            margin-bottom: 0;
+        }
+
+        .form-row button {
+            font-size: 16px;
+            font-weight: bold;
+
+            color: #FFFFFF;
+            background-color: #5995DA;
+
+            border: none;
+            border-radius: 3px;
+
+            padding: 10px 40px;
+            cursor: pointer;
+        }
+
+        .form-row button:hover {
+            background-color: #76AEED;
+        }
+
+        .form-row button:active {
+            background-color: #407FC7;
+        }
+
+        @media only screen and (min-width: 700px) {
+
+            .speaker-form-header,
+            .speaker-form {
+                width: 600px;
+            }
+
+            .form-row {
+                flex-direction: row;
+                align-items: flex-start;
+                margin-bottom: 20px;
+            }
+
+            .form-row input[type='text'],
+            .form-row input[type='email'],
+            .form-row select,
+            .form-row textarea {
+                width: 250px;
+                height: initial;
+            }
+
+            .form-row label {
+                text-align: right;
+                width: 120px;
+                margin-top: 8px;
+                padding-right: 20px;
+            }
+
+            .legacy-form-row {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-bottom: 40px;
+            }
+
+            .legacy-form-row legend {
+                width: 120px;
+                text-align: right;
+                padding-right: 15px;
+                padding-top: 20px;
+            }
+
+            .legacy-form-row .radio-label {
+                display: inline-block;
+                font-size: 14px;
+                padding: 0 20px 0 10px;
+            }
+
+            .legacy-form-row input[type='radio'] {
+                margin-top: 2px;
+                margin-left: 10px;
+            }
+
+            .form-row .instructions {
+                margin-left: 120px;
+            }
+
+            .form-row .checkbox-label {
+                margin-left: 120px;
+                width: auto;
+            }
+
+            .form-row button {
+                margin-left: 120px;
+            }
+        }
+    </style>
+    <script>
+
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', function () {
+            myInput.focus()
+        })
+    </script>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+        </script>
+    <nav class="navbar navbar-dark bg-dark navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-custom" href="#">Navigation menu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" arial-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" style="color:white" href="css-library.html">4 CSS
+                            Libraries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" style="color:white" href="./web-typography.html"
+                            data-bs-toggle="modal">5 Web Typography</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" style="color:white" href="./forms.html"
+                            data-bs-toggle="modal">6 HTML Forms vs CSS Library Forms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" style="color:white" href="./css3-advanced.html"
+                            data-bs-toggle="modal">7 CSS3 Advanced</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" style="color:white"
+                            href="./css-pre-prosessors.html" data-bs-toggle="modal">8 CSS Pre-Prosessor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" style="color:white" target="_blank"
+                            href="./animations.html" data-bs-toggle="modal">9 CSS Animations 1/2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" style="color:white" target="_blank"
+                            href="./animations1.html" data-bs-toggle="modal">9
+                            CSS Animations 2/2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" style="color:white" target="_blank"
+                            href="./svg-illustration.html" data-bs-toggle="modal">
+                            10 SVG Illustrations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" style="color:white" target="_blank"
+                            href="./Finalassignment/home.html" data-bs-toggle="modal">
+                            The Final Assignment</a>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+    </div>
+
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+    <svg width="210mm" height="297mm" viewBox="0 0 210 297" version="1.1" id="svg1"
+        inkscape:export-filename="bitmap.svg" inkscape:export-xdpi="96" inkscape:export-ydpi="96"
+        inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)" sodipodi:docname="drawing.svg"
+        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg">
+        <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25"
+            inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0"
+            inkscape:deskcolor="#d1d1d1" inkscape:document-units="mm" inkscape:zoom="1" inkscape:cx="293"
+            inkscape:cy="453" inkscape:window-width="1350" inkscape:window-height="1032" inkscape:window-x="2385"
+            inkscape:window-y="35" inkscape:window-maximized="0" inkscape:current-layer="layer1" />
+        <defs id="defs1" />
+        <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1">
+            <text xml:space="preserve"
+                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#2e3128;fill-opacity:1;stroke-width:0.264583"
+                x="16.668747" y="94.456245" id="text88" inkscape:label="text">
+                <tspan id="tspan88"
+                    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#2e3128;fill-opacity:1;stroke-width:0.264583"
+                    x="16.668747" y="94.456245" sodipodi:role="line">This is a placeholder SVG</tspan>
+            </text>
+            <ellipse style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path88" cx="57.282291" cy="210.34375"
+                rx="6.4822917" ry="6.0854168" />
+            <ellipse style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path88-7" cx="128.98438"
+                cy="210.60832" rx="6.4822917" ry="6.0854168" />
+            <rect style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="rect88" width="99.21875"
+                height="52.122917" x="46.302082" y="152.92917" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path89" sodipodi:type="arc"
+                sodipodi:cx="146.97604" sodipodi:cy="147.5052" sodipodi:rx="7.0114584" sodipodi:ry="7.0114579"
+                sodipodi:start="2.0450219" sodipodi:end="6.0298926" sodipodi:open="true" sodipodi:arc-type="arc"
+                d="m 143.77426,153.74292 a 7.0114584,7.0114579 0 0 1 -3.62228,-7.84791 7.0114584,7.0114579 0 0 1 6.74844,-5.40086 7.0114584,7.0114579 0 0 1 6.86336,5.25403" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path90" sodipodi:type="arc"
+                sodipodi:cx="62.309376" sodipodi:cy="151.73854" sodipodi:rx="8.0697918" sodipodi:ry="7.5406251"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 58.624308,158.44703 a 8.0697918,7.5406251 0 0 1 -3.621848,-9.90888 8.0697918,7.5406251 0 0 1 10.467402,-3.73787 8.0697918,7.5406251 0 0 1 4.373329,9.64054 8.0697918,7.5406251 0 0 1 -10.15343,4.42998 l 2.619615,-7.13226 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path91" sodipodi:type="arc"
+                sodipodi:cx="68.791664" sodipodi:cy="147.5052" sodipodi:rx="7.1437497" sodipodi:ry="8.3343744"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 65.529474,154.91985 a 7.1437497,8.3343744 0 0 1 -3.206227,-10.95192 7.1437497,8.3343744 0 0 1 9.266224,-4.13132 7.1437497,8.3343744 0 0 1 3.871472,10.65532 7.1437497,8.3343744 0 0 1 -8.988282,4.8963 l 2.319003,-7.88303 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path92" sodipodi:type="arc"
+                sodipodi:cx="76.199997" sodipodi:cy="153.32603" sodipodi:rx="6.8791666" sodipodi:ry="5.4239583"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 73.058628,158.15144 a 6.8791666,5.4239583 0 0 1 -3.087478,-7.12744 6.8791666,5.4239583 0 0 1 8.923031,-2.68864 6.8791666,5.4239583 0 0 1 3.728085,6.93442 6.8791666,5.4239583 0 0 1 -8.655383,3.18648 l 2.233114,-5.13023 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path93" sodipodi:type="arc"
+                sodipodi:cx="81.756248" sodipodi:cy="147.37291" sodipodi:rx="4.4979167" sodipodi:ry="8.2020836"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 79.702277,154.66987 a 4.4979167,8.2020836 0 0 1 -2.018736,-10.77809 4.4979167,8.2020836 0 0 1 5.83429,-4.06575 4.4979167,8.2020836 0 0 1 2.437593,10.4862 4.4979167,8.2020836 0 0 1 -5.659289,4.81858 l 1.460113,-7.7579 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path94" sodipodi:type="arc"
+                sodipodi:cx="94.720833" sodipodi:cy="150.01875" sodipodi:rx="11.641666" sodipodi:ry="7.1437497"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 89.40467,156.37417 a 11.641666,7.1437497 0 0 1 -5.224962,-9.38737 11.641666,7.1437497 0 0 1 15.100514,-3.54113 11.641666,7.1437497 0 0 1 6.309068,9.13314 11.641666,7.1437497 0 0 1 -14.647573,4.19682 l 3.779116,-6.75688 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path95" sodipodi:type="arc"
+                sodipodi:cx="93.265625" sodipodi:cy="153.9875" sodipodi:rx="6.7468748" sodipodi:ry="4.7624998"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 90.184667,158.22444 a 6.7468748,4.7624998 0 0 1 -3.028103,-6.25824 6.7468748,4.7624998 0 0 1 8.751434,-2.36075 6.7468748,4.7624998 0 0 1 3.65639,6.08876 6.7468748,4.7624998 0 0 1 -8.488932,2.79788 l 2.190169,-4.50459 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path96" sodipodi:type="arc"
+                sodipodi:cx="62.838539" sodipodi:cy="156.89792" sodipodi:rx="5.6885414" sodipodi:ry="5.0270834"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 60.240869,161.37025 a 5.6885414,5.0270834 0 0 1 -2.553107,-6.60593 5.6885414,5.0270834 0 0 1 7.37866,-2.49191 5.6885414,5.0270834 0 0 1 3.082839,6.42703 5.6885414,5.0270834 0 0 1 -7.157335,2.95332 l 1.846613,-4.75484 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path97" sodipodi:type="arc"
+                sodipodi:cx="81.623955" sodipodi:cy="151.34166" sodipodi:rx="3.8364582" sodipodi:ry="3.175"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 79.872038,154.16629 a 3.8364582,3.175 0 0 1 -1.721863,-4.17217 3.8364582,3.175 0 0 1 4.976306,-1.57383 3.8364582,3.175 0 0 1 2.079124,4.05917 3.8364582,3.175 0 0 1 -4.827041,1.86526 l 1.245391,-3.00306 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path98" sodipodi:type="arc"
+                sodipodi:cx="105.83333" sodipodi:cy="151.34166" sodipodi:rx="9.260417" sodipodi:ry="10.318749"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 101.60456,160.5217 a 9.260417,10.318749 0 0 1 -4.156218,-13.55953 9.260417,10.318749 0 0 1 12.011778,-5.11497 9.260417,10.318749 0 0 1 5.01857,13.19232 9.260417,10.318749 0 0 1 -11.65148,6.06207 l 3.00612,-9.75993 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path99" sodipodi:type="arc"
+                sodipodi:cx="94.323959" sodipodi:cy="143.13959" sodipodi:rx="4.6302085" sodipodi:ry="8.9958334"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 92.209576,151.1427 a 4.6302085,8.9958334 0 0 1 -2.07811,-11.82113 4.6302085,8.9958334 0 0 1 6.005887,-4.4592 4.6302085,8.9958334 0 0 1 2.509287,11.50099 4.6302085,8.9958334 0 0 1 -5.825738,5.28489 l 1.503057,-8.50866 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path100" sodipodi:type="arc"
+                sodipodi:cx="116.81354" sodipodi:cy="152.92917" sodipodi:rx="4.8947916" sodipodi:ry="9.5249996"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 114.57833,161.40305 a 4.8947916,9.5249996 0 0 1 -2.19686,-12.51648 4.8947916,9.5249996 0 0 1 6.34908,-4.72151 4.8947916,9.5249996 0 0 1 2.65268,12.17752 4.8947916,9.5249996 0 0 1 -6.15864,5.59576 l 1.58895,-9.00917 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path101" sodipodi:type="arc"
+                sodipodi:cx="123.6927" sodipodi:cy="153.59062" sodipodi:rx="5.6885414" sodipodi:ry="7.0114584"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 121.09503,159.82834 a 5.6885414,7.0114584 0 0 1 -2.5531,-9.21352 5.6885414,7.0114584 0 0 1 7.37866,-3.47556 5.6885414,7.0114584 0 0 1 3.08284,8.96401 5.6885414,7.0114584 0 0 1 -7.15734,4.1191 l 1.84661,-6.63175 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path102" sodipodi:type="arc"
+                sodipodi:cx="124.22187" sodipodi:cy="147.6375" sodipodi:rx="5.1593747" sodipodi:ry="7.6729164"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 121.86584,154.46368 a 5.1593747,7.6729164 0 0 1 -2.3156,-10.08272 5.1593747,7.6729164 0 0 1 6.69227,-3.80344 5.1593747,7.6729164 0 0 1 2.79606,9.80967 5.1593747,7.6729164 0 0 1 -6.49153,4.50769 l 1.67483,-7.25738 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path103" sodipodi:type="arc"
+                sodipodi:cx="110.46354" sodipodi:cy="143.00729" sodipodi:rx="4.1010418" sodipodi:ry="5.6885414"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 108.5908,148.06809 a 4.1010418,5.6885414 0 0 1 -1.84061,-7.47513 4.1010418,5.6885414 0 0 1 5.3195,-2.81979 4.1010418,5.6885414 0 0 1 2.22251,7.27269 4.1010418,5.6885414 0 0 1 -5.15994,3.34191 l 1.33128,-5.38048 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path104" sodipodi:type="arc"
+                sodipodi:cx="87.3125" sodipodi:cy="144.06563" sodipodi:rx="3.7041667" sodipodi:ry="3.3072915"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 85.620994,147.00795 a 3.7041667,3.3072915 0 0 1 -1.662488,-4.346 3.7041667,3.3072915 0 0 1 4.804709,-1.63942 3.7041667,3.3072915 0 0 1 2.00743,4.22831 3.7041667,3.3072915 0 0 1 -4.660591,1.94297 l 1.202446,-3.12818 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path105" sodipodi:type="arc"
+                sodipodi:cx="76.464584" sodipodi:cy="148.69583" sodipodi:rx="4.4979167" sodipodi:ry="2.1166666"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 74.410612,150.57892 a 4.4979167,2.1166666 0 0 1 -2.018735,-2.78145 4.4979167,2.1166666 0 0 1 5.83429,-1.04922 4.4979167,2.1166666 0 0 1 2.437593,2.70612 4.4979167,2.1166666 0 0 1 -5.659289,1.2435 l 1.460113,-2.00204 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path106" sodipodi:type="arc"
+                sodipodi:cx="54.768749" sodipodi:cy="153.72292" sodipodi:rx="5.0270834" sodipodi:ry="3.175"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 52.473134,156.54754 a 5.0270834,3.175 0 0 1 -2.256234,-4.17216 5.0270834,3.175 0 0 1 6.520676,-1.57384 5.0270834,3.175 0 0 1 2.72437,4.05918 5.0270834,3.175 0 0 1 -6.325088,1.86525 l 1.631891,-3.00305 z" />
+            <path style="fill:#2e3128;fill-opacity:1;stroke-width:0.264583" id="path107" sodipodi:type="arc"
+                sodipodi:cx="128.85208" sodipodi:cy="153.06146" sodipodi:rx="6.8791666" sodipodi:ry="4.6302085"
+                sodipodi:start="2.0450219" sodipodi:end="1.9014061" sodipodi:arc-type="slice"
+                d="m 125.71071,157.18071 a 6.8791666,4.6302085 0 0 1 -3.08748,-6.0844 6.8791666,4.6302085 0 0 1 8.92304,-2.29518 6.8791666,4.6302085 0 0 1 3.72808,5.91963 6.8791666,4.6302085 0 0 1 -8.65538,2.72016 l 2.23311,-4.37946 z" />
+            <text xml:space="preserve"
+                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#2e3128;fill-opacity:1;stroke-width:0.264583"
+                x="36.247917" y="111.2628" id="text88-7" inkscape:label="text">
+                <tspan id="tspan88-5"
+                    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#2e3128;fill-opacity:1;stroke-width:0.264583"
+                    x="36.247917" y="111.2628" sodipodi:role="line">(I am designer-type of person)</tspan>
+            </text>
+        </g>
+    </svg>
+
+
+    <div class="modal fade" id="cssLibrariesModal" tabindex="-1" aria-labelledby="cssLibrariesModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cssLibrariesModalLabel">CSS Libraries</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This function is not yet ready.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

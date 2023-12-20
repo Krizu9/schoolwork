@@ -1,0 +1,12 @@
+compile_pdf:
+  image: aergus/latex
+  script:
+    - latexmk -pdf -f jamk-report.tex
+  artifacts:
+    paths:
+      - jamk-report.pdf
+    expire_in: 1 month
+  tags:
+    -  general 
+  only:
+    - master
