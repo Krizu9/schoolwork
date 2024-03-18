@@ -2,3 +2,9 @@ env/
 node_modules/
 .venv/
 venv/
+x64/
+.vs/
+vs/
+x86/
+core/
+.core/
