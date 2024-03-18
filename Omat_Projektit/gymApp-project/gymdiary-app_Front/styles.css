@@ -21,3 +21,230 @@ body {
 #registerSubmitButton {
     display: none;
 }
+
+.flex {
+    display: flex;
+    gap: 1.5em;
+    margin-bottom: 1em;
+    align-items: center;
+}
+
+.flex .remove {
+    margin-left: auto;
+}
+
+.remove {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    color: white;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove:hover {
+    background-color: #c82333;
+}
+
+.modal-content {
+    max-width: 90vh;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    padding: 1em;
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-dialog {
+    width: 90vw;
+    max-width: none;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-content {
+    height: 90vh;
+    max-height: none;
+}
+
+.modal-body {
+    height: 90vh;
+    overflow-y: auto;
+}
+
+#exerciseName,
+#weight {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.input-group {
+    display: block;
+}
+
+.add {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add:hover {
+    background-color: #218838;
+}
+
+#addExerciseSubmitButton {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.5em;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input #date {
+    padding: 0.5em;
+}
+
+#addExerciseForm input[type="text"] {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+#addExerciseForm input[type="date"] {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+#addExerciseForm input[type="number"] {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+}
+
+#addExerciseForm input[type="number"]:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.remove:hover {
+    background-color: darkred;
+}
+
+#addExerciseSubmitButton:hover {
+    background-color: #0056b3;
+}
+
+.btn-close {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+}
+
+.btn-close:focus,
+.btn-close:hover {
+    color: #f8f9fa;
+    text-decoration: none;
+    outline: none;
+}
+
+#displayworkouts {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #a09595;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.workout-card {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Vertically aligns the buttons at the bottom */
+    align-items: center;
+    /* Horizontally center the edit button */
+}
+
+.workout-details {
+    /* Add styles to position text to the left side */
+    margin-right: auto;
+    /* Pushes the text to the left */
+}
+
+.workout-card .delete-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.sets-list {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.no-sets {
+    color: #999;
+    margin-top: 10px;
+}
+
+
+.delete-button {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.edit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}

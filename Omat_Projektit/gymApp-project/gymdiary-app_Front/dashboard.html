@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
     <script src="javascript.js"></script>
 </head>
 
@@ -12,15 +15,43 @@
     <h1>Welcome <span id="usernamePlaceholder"></span></h1>
     <button onclick="logout()">Logout</button>
     <button onclick="loaduserdata()">loaduserdata</button>
+    <button onclick="getWorkouts()">getworkouts</button>
 
-    <form id="addAction">
-        <h2>Add action</h2>
-        <input id="action" type="text" placeholder="Action">
-        <input id="repetition" type="number" placeholder="Repetition">
-        <input id="date" type="date" placeholder="Date">
-        <input id="time" type="time" placeholder="Time">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addExercise"
+        data-chart-type="addExercise">
+        Add exercise
+    </button>
 
-    </form>
+    <div id="displayworkouts">
+        <h2>Your workouts</h2>
+        <div id="workouts"></div>
+    </div>
+
+    <div class="modal fade" id="addExercise" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add exercise</h5>
+                    <button class="btn btn-close" type="button" data-bs-dismiss="modal" id="btns"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addExerciseForm">
+                        <p class="modal-p">Exercise name:</p><input id="exerciseName" type="text"
+                            placeholder="Exercise name">
+                        <p class="modal-p">Date:</p><input id="date" type="date">
+                        <a href="#" class="add">Add sets</a>
+                        <div class="input-group"></div>
+                        <button onclick="submitWorkout()" id="addExerciseSubmitButton" type="button">Add
+                            exercise</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

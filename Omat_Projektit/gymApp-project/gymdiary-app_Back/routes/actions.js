@@ -4,6 +4,7 @@ const authentication = require('../middleware/authentication')
 
 const { getActions, createAction, updateAction, deleteAction } = require('../controller/actions')
 
+
 actionsRouter.get('/', authentication, async (req, res) => {
     try {
         getActions(req, res)
@@ -19,6 +20,8 @@ actionsRouter.post('/', authentication, async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 })
+
+
 
 actionsRouter.put('/:id', authentication, async (req, res) => {
     try {

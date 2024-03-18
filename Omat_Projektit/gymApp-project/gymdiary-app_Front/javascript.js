@@ -164,5 +164,186 @@ function logout() {
     window.location.href = "index.html";
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const addBtn = document.querySelector('#addExercise .add');
+    const input = document.querySelector('#addExercise .input-group');
+
+    const today = new Date();
+
+    const formattedDate = today.toISOString().substr(0, 10)
+    document.getElementById('date').value = formattedDate;
+
+    function addInput() {
+        const currentSet = input.querySelectorAll('.flex').length + 1;
+
+        const set = document.createElement('input');
+        set.type = "text";
+        set.id = `set${currentSet}`; // Unique ID for set input
+        set.value = "Set: " + currentSet;
+        set.min = 1;
+
+        const rep = document.createElement('input');
+        rep.type = "number";
+        rep.id = `rep${currentSet}`; // Unique ID for rep input
+        rep.placeholder = "How many reps?";
+        rep.min = 1;
+
+        const weight = document.createElement('input');
+        weight.type = "text";
+        weight.id = `weight${currentSet}`; // Unique ID for weight input
+        weight.placeholder = "How much weight?";
+        weight.min = 1;
+
+        const btn = document.createElement('a')
+        btn.className = "remove";
+        btn.innerHTML = "&times";
+
+        const flex = document.createElement('div');
+        flex.className = "flex";
+
+        flex.appendChild(set);
+        flex.appendChild(rep);
+        flex.appendChild(weight);
+        flex.appendChild(btn);
 
 
+        input.appendChild(flex);
+
+        btn.addEventListener('click', function () {
+            input.removeChild(flex);
+        });
+    }
+
+    addBtn.addEventListener('click', addInput);
+});
+
+async function submitWorkout() {
+    const exerciseName = document.getElementById('exerciseName').value;
+    const date = document.getElementById('date').value;
+
+    const sets = [];
+    const reps = document.querySelectorAll(".flex");
+    reps.forEach((rep, index) => { // Using index to differentiate between inputs
+        const set = document.getElementById(`set${index + 1}`).value;
+        const repsValue = document.getElementById(`rep${index + 1}`).value;
+        const weightValue = document.getElementById(`weight${index + 1}`).value;
+        sets.push({ set, reps: repsValue, weight: weightValue });
+    });
+
+    const workout = {
+        exerciseName,
+        date,
+        sets
+    }
+    console.log(workout);
+    const token = sessionStorage.getItem('gymappToken');
+
+    await fetch("http://localhost:5001/actions", {
+        method: 'POST',
+        referrerPolicy: "strict-origin-when-cross-origin",
+        headers: { 'Content-Type': 'application/json' },
+        accessControlAllowOrigin: "*",
+        origin: "http://localhost:5001",
+        body: JSON.stringify({
+            token: token,
+            workout: workout
+        })
+    })
+        .then(response => {
+            //alert("Workout added successfully");
+        })
+        .catch(error => {
+            console.error(error);
+            alert("An error occurred during workout submission");
+        });
+
+}
+
+async function getWorkouts() {
+    const token = sessionStorage.getItem('gymappToken');
+
+    await fetch("http://localhost:5001/actions", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${token}` // Include the token in the Authorization header
+        }
+    })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            const displayWorkouts = document.getElementById('workouts');
+            displayWorkouts.innerHTML = "";
+            data.forEach(workout => {
+                const workoutCard = document.createElement('div');
+                workoutCard.classList.add('workout-card');
+
+                workoutCard.innerHTML = `
+            <div class="workout-details">
+                <p>Action: ${workout.action}</p>
+                <p>Day: ${new Date(workout.day).toLocaleDateString()}</p>
+            </div>
+        `;
+
+                if (workout.sets.length > 0) {
+                    const setsList = document.createElement('ul');
+                    setsList.classList.add('workout-details');
+                    workout.sets.forEach((set, index) => {
+                        const setItem = document.createElement('li');
+
+                        setItem.textContent = `Set ${index + 1}: ${set.reps} reps, ${set.weight}`;
+                        setsList.appendChild(setItem);
+                    });
+                    workoutCard.appendChild(setsList);
+                } else {
+                    workoutCard.innerHTML += '<p class="no-sets">No sets recorded for this workout</p>';
+                }
+
+                // Create delete button
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.classList.add('delete-button'); // Add the delete-button class
+                deleteButton.addEventListener('click', () => {
+                    deleteWorkout(workout._id);
+                });
+                const editButton = document.createElement('button');
+                editButton.textContent = 'Edit';
+                editButton.classList.add('edit-button'); // Add the edit-button class
+                editButton.addEventListener('click', () => {
+                    editWorkout(workout._id);
+                });
+
+                workoutCard.appendChild(editButton);
+                workoutCard.appendChild(deleteButton);
+
+                displayWorkouts.appendChild(workoutCard);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching workouts:', error);
+        });
+}
+
+async function deleteWorkout(id) {
+    const token = sessionStorage.getItem('gymappToken');
+    console.log(id)
+
+    await fetch(`http://localhost:5001/actions/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${token}`
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                alert("Workout deleted successfully");
+                getWorkouts();
+            }
+        })
+        .catch(error => {
+            console.error('Error deleting workout:', error);
+        });
+}

@@ -1,9 +1,24 @@
-const actionsSchema = require('../models/actionsSchema');
+const { Workouts } = require('../models/actionsSchema');
+
+require('dotenv').config();
 
 const getActions = async (req, res) => {
+    let token = req.headers.authorization;
+
     try {
-        const actions = await actionsSchema.find();
-        res.send(actions);
+        if (!token) {
+            return res.status(401).json({ error: 'No token delivered' });
+        }
+
+        if (token.startsWith('Bearer ')) {
+            // Remove 'Bearer ' from token string
+            token = token.slice(7);
+        }
+
+        const [tokenPart, userId] = token.split(',');
+
+        const workouts = await Workouts.find({ user: userId });
+        res.send(workouts);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -11,10 +26,17 @@ const getActions = async (req, res) => {
 
 const createAction = async (req, res) => {
     try {
-        const { action, repetition, day, user } = req.body;
-        const newAction = { action, repetition, day, user };
-        const createdAction = await actionsSchema.create(newAction);
-        res.status(201).json(createdAction);
+        const { token, workout } = req.body;
+        console.log(workout)
+        const [tokenPart, userId] = token.split(',');
+        const action = workout.exerciseName;
+        const sets = workout.sets;
+        const day = workout.date;
+        const workoutToDB = new Workouts({ action: action, sets: sets, day: day, user: userId });
+        console.log("asd")
+        await workoutToDB.save();
+        console.log("pääsee tänne")
+        res.status(200).json({ success: true });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -23,7 +45,7 @@ const createAction = async (req, res) => {
 const updateAction = async (req, res) => {
     try {
         const { id } = req.params;
-        const updated = await actionsSchema.findByIdAndUpdate(id, req.body, { new: true });
+        const updated = await Workouts.findByIdAndUpdate(id, req.body, { new: true });
         res.status(200).json(updated);
     }
     catch (error) {
@@ -33,8 +55,11 @@ const updateAction = async (req, res) => {
 
 const deleteAction = async (req, res) => {
     try {
+        console.log("pääsee tänne")
         const { id } = req.params;
-        const deleted = await actionsSchema.findByIdAndDelete(id);
+        console.log(id)
+        console.log(req.params)
+        const deleted = await Workouts.findByIdAndDelete(id);
         res.status(200).json(deleted);
     }
     catch (error) {
