@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="javascript.js"></script>
+</head>
+
+<body>
+    <h1>Welcome <span id="usernamePlaceholder"></span></h1>
+    <button onclick="logout()">Logout</button>
+    <button onclick="loaduserdata()">loaduserdata</button>
+
+    <form id="addAction">
+        <h2>Add action</h2>
+        <input id="action" type="text" placeholder="Action">
+        <input id="repetition" type="number" placeholder="Repetition">
+        <input id="date" type="date" placeholder="Date">
+        <input id="time" type="time" placeholder="Time">
+
+    </form>
+</body>
+
+</html>
