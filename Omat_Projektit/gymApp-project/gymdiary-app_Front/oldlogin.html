@@ -1,0 +1,25 @@
+<div class="loginContainer">
+    <h2>Welcome!</h2>
+    <p>Do you want to login or register?</p>
+    <button onclick="showLoginForm()">Login</button>
+    <button onclick="showRegisterForm()">Register</button>
+
+    <form id="loginForm">
+        <h2>Login</h2>
+        <input id="name" type="text" placeholder="name">
+        <input id="password" type="password" placeholder="Password">
+    </form>
+    <button id="loginSubmitButton" onclick="getToken()" type="button">Login</button>
+
+    <form id="registerForm">
+        <h2>Register</h2>
+        <input id="regname" type="text" placeholder="Username">
+        <input id="regemail" type="email" placeholder="Email">
+        <input id="regpassword" type="text" placeholder="Password">
+        <input id="regconfirmpassword" type="text" placeholder="Confirm Password">
+        <h2>Vastaa kysymykseen:</h2>
+        <h2>Panda on musta ja ______</h2>
+        <input id="question" type="text" placeholder="Vastaus">
+    </form>
+    <button id="registerSubmitButton" onclick="register()" type="button">Register</button>
+</div>

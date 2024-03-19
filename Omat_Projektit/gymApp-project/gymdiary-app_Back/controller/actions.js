@@ -11,7 +11,6 @@ const getActions = async (req, res) => {
         }
 
         if (token.startsWith('Bearer ')) {
-            // Remove 'Bearer ' from token string
             token = token.slice(7);
         }
 
@@ -27,15 +26,12 @@ const getActions = async (req, res) => {
 const createAction = async (req, res) => {
     try {
         const { token, workout } = req.body;
-        console.log(workout)
         const [tokenPart, userId] = token.split(',');
         const action = workout.exerciseName;
         const sets = workout.sets;
         const day = workout.date;
         const workoutToDB = new Workouts({ action: action, sets: sets, day: day, user: userId });
-        console.log("asd")
         await workoutToDB.save();
-        console.log("pääsee tänne")
         res.status(200).json({ success: true });
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -45,7 +41,9 @@ const createAction = async (req, res) => {
 const updateAction = async (req, res) => {
     try {
         const { id } = req.params;
-        const updated = await Workouts.findByIdAndUpdate(id, req.body, { new: true });
+        const { workout } = req.body;
+        const updated = await Workouts.findByIdAndUpdate(id, workout, { new: true });
+
         res.status(200).json(updated);
     }
     catch (error) {
@@ -55,7 +53,6 @@ const updateAction = async (req, res) => {
 
 const deleteAction = async (req, res) => {
     try {
-        console.log("pääsee tänne")
         const { id } = req.params;
         console.log(id)
         console.log(req.params)

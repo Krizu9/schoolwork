@@ -1,6 +1,7 @@
 const express = require('express')
 const actionsRouter = express.Router()
 const authentication = require('../middleware/authentication')
+const validateInput = require('../middleware/validateInput')
 
 const { getActions, createAction, updateAction, deleteAction } = require('../controller/actions')
 
@@ -13,7 +14,7 @@ actionsRouter.get('/', authentication, async (req, res) => {
     }
 });
 
-actionsRouter.post('/', authentication, async (req, res) => {
+actionsRouter.post('/', authentication, validateInput , async (req, res) => {
     try {
         createAction(req, res)
     } catch (error) {
@@ -23,7 +24,7 @@ actionsRouter.post('/', authentication, async (req, res) => {
 
 
 
-actionsRouter.put('/:id', authentication, async (req, res) => {
+actionsRouter.put('/:id', authentication, validateInput,  async (req, res) => {
     try {
         updateAction(req, res)
     } catch (error) {
