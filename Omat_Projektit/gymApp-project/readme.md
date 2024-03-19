@@ -10,6 +10,12 @@ This is project, that I did not plan at all. I am just learning while doing and 
 - User authentication with JWT
 - User registration
 - Token validation
+- Register
+- Login
+- Add workout
+- Get all workouts
+- Edit workout
+- Delete workout
 
 ## Technologies Used
 
@@ -18,11 +24,10 @@ This is project, that I did not plan at all. I am just learning while doing and 
 - MongoDB
 - JSON Web Tokens (JWT)
 - Bcrypt.js
+- bootstrap 5.0
 
 ## Currenly developing
-- finishing touches on login/registration
-- adding ways to add workouts
-- adding all of the CRUD operations to workouts
+- Making UI look better
 
 ## Setup
 
