@@ -8,4 +8,5 @@ vs/
 x86/
 core/
 .core/
-log.txt/
+log.txt
+log/
