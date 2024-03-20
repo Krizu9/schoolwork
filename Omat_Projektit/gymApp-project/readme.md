@@ -1,6 +1,6 @@
 # Gym Documentation App
 
-[![Watch the video](https://img.youtube.com/vi/sc6HbDFsXYA)](https://youtu.be/sc6HbDFsXYA)
+[![Watch the video](https://img.youtube.com/vi/sc6HbDFsXYA/hqdefault.jpg)](https://youtu.be/sc6HbDFsXYA)
 
 This is a simple backend application for managing gym documentation. It provides authentication using JSON Web Tokens (JWT) and allows users to log in, register, and perform other operations related to gym documentation. It also draws graphs about your progress.
 
