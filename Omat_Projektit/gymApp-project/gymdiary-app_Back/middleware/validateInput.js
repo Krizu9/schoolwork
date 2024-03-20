@@ -25,7 +25,7 @@ const validateInput = async (req, res, next) => {
             if (!set.set.startsWith('Set: ') || isNaN(parseInt(set.set.substring(5))) || parseInt(set.set.substring(5)) < 1 || parseInt(set.set.substring(5)) > 99) {
                 return res.status(400).json({ error: 'Set must start with "Set: " followed by a number between 1 and 99' });
             }
-            const weightRegex = /^[1-9][0-9]{0,2}\s?(?:kg|lbs)?$/;
+            const weightRegex = /^[1-9][0-9]{0,2}([.,][0-9]{1,2})?\s?(?:kg|lbs)?$/;
             if (!weightRegex.test(set.weight)) {
                 return res.status(400).json({ error: 'Weight must be a string representing a number between 1 and 999 followed by "kg" or "lbs"' });
             }

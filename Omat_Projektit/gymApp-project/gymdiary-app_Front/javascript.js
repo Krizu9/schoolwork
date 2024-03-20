@@ -1,3 +1,12 @@
+function showRegister() {
+    document.querySelector('.formContainer').style.display = "none";
+    document.querySelector('.formContainer:nth-child(2)').style.display = "block";
+}
+function showLogin() {
+    document.querySelector('.formContainer').style.display = "block";
+    document.querySelector('.formContainer:nth-child(2)').style.display = "none";
+}
+
 async function getToken() {
     const name = document.getElementById('name').value;
     const password = document.getElementById('password').value;
@@ -19,22 +28,11 @@ async function getToken() {
         .then(data => {
             userData = data.token + "," + data.user
             sessionStorage.setItem('gymappToken', userData);
-            toFrontPage();
+            redirectToHome(name);
         });
 
 }
 
-
-async function toFrontPage() {
-    const token = sessionStorage.getItem('gymappToken');
-    if (token) {
-        console.log(token);
-        login(token);
-    } else {
-        alert("You are not logged in, please log in");
-        redirectToHome();
-    }
-}
 
 async function login(tokenVariable) {
     const token = tokenVariable;
@@ -56,10 +54,13 @@ async function login(tokenVariable) {
             redirectToHome(data);
         });
 }
+const userName = "User";
+function redirectToHome(user) {
+    const token = sessionStorage.getItem('gymappToken');
+    if (token) {
 
-redirectToHome = async function (user) {
-    if (user && user.access && user.access.name) {
-        window.location.href = `dashboard.html?name=${encodeURIComponent(user.access.name)}`;
+        window.location.href = `homepage.html?name=${encodeURIComponent(user)}`;
+        userName = user;
     } else {
         alert("You are not logged in, please log in");
     }
@@ -73,7 +74,7 @@ async function register() {
     const confirmPassword = document.getElementById('regconfirmpassword').value;
     const answer = document.getElementById('question').value;
 
-    if (answer !== "valkoinen") {
+    if (answer !== "white") {
         alert("Wrong answer, are you a bot?");
         return;
     }
@@ -108,6 +109,7 @@ async function register() {
         .then(response => {
             if (response.ok) {
                 alert("Registration successful");
+                location.refresh();
             }
         })
         .catch(error => {
@@ -119,61 +121,128 @@ async function register() {
 
 function logout() {
     sessionStorage.removeItem('gymappToken');
-    window.location.href = "index.html";
+    const token = sessionStorage.getItem('gymappToken');
+    const logoutLink = document.getElementById('logoutbutton');
+    logoutLink.style.display = 'none';
+    alert("You have been logged out");
+    window.location.href = "homepage.html";
+    console.log(token);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    const addBtn = document.querySelector('#addExercise .add');
-    const input = document.querySelector('#addExercise .input-group');
 
-    const today = new Date();
+document.addEventListener('DOMContentLoaded', async function () {
+    const logoutLink = document.getElementById('logoutbutton');
+    const loginLink = document.getElementById('loginbutton');
+    const workoutLink = document.getElementById('workoutsbutton');
+    const statiscticsLink = document.getElementById('statiscticsbutton');
+    const usernamefornav = document.getElementById('userName');
+    const token = sessionStorage.getItem('gymappToken');
 
-    const formattedDate = today.toISOString().substr(0, 10)
-    document.getElementById('date').value = formattedDate;
-
-    function addInput() {
-        const currentSet = input.querySelectorAll('.flex').length + 1;
-
-        const set = document.createElement('input');
-        set.type = "text";
-        set.id = `set${currentSet}`;
-        set.value = "Set: " + currentSet;
-        set.min = 1;
-
-        const rep = document.createElement('input');
-        rep.type = "number";
-        rep.id = `rep${currentSet}`;
-        rep.placeholder = "How many reps?";
-        rep.min = 1;
-
-        const weight = document.createElement('input');
-        weight.type = "text";
-        weight.id = `weight${currentSet}`;
-        weight.placeholder = "How much weight?";
-        weight.min = 1;
-
-        const btn = document.createElement('a')
-        btn.className = "remove";
-        btn.innerHTML = "&times";
-
-        const flex = document.createElement('div');
-        flex.className = "flex";
-
-        flex.appendChild(set);
-        flex.appendChild(rep);
-        flex.appendChild(weight);
-        flex.appendChild(btn);
-
-
-        input.appendChild(flex);
-
-        btn.addEventListener('click', function () {
-            input.removeChild(flex);
-        });
+    if (userName !== "User") {
+        usernamefornav.innerHTML = userName;
     }
 
-    addBtn.addEventListener('click', addInput);
+    if (token !== null) {
+        logoutLink.style.display = 'block';
+        loginLink.style.display = 'none';
+    }
+    if (token === null) {
+        logoutLink.style.display = 'none';
+        workoutLink.style.display = 'none';
+        statiscticsLink.style.display = 'none';
+        loginLink.style.display = 'block';
+    }
+
+    if (window.location.pathname === "/statistics.html") {
+        if (token === null) {
+            alert("You are not logged in, please log in");
+            window.location.href = "homepage.html";
+        } else {
+            await d3js();
+        }
+    }
+
+    if (window.location.pathname === "/workouts.html") {
+        if (token === null) {
+            alert("You are not logged in, please log in");
+            window.location.href = "homepage.html";
+        } else {
+            const data = await getWorkouts();
+            displayWorkouts(data);
+        }
+
+        const addBtn = document.querySelector('#addExercise .add');
+        const input = document.querySelector('#addExercise .input-group');
+
+        const today = new Date();
+        const formattedDate = today.toISOString().substr(0, 10);
+        document.getElementById('date').value = formattedDate;
+
+        function addInput() {
+            const currentSet = input.querySelectorAll('.flex').length + 1;
+
+            const set = document.createElement('input');
+            set.type = "text";
+            set.id = `set${currentSet}`;
+            set.value = "Set: " + currentSet;
+            set.min = 1;
+
+            const rep = document.createElement('input');
+            rep.type = "number";
+            rep.id = `rep${currentSet}`;
+            rep.placeholder = "How many reps?";
+            rep.min = 1;
+
+            const weight = document.createElement('input');
+            weight.type = "text";
+            weight.id = `weight${currentSet}`;
+            weight.placeholder = "How much weight?";
+            weight.min = 1;
+
+            const btn = document.createElement('a');
+            btn.className = "remove";
+            btn.innerHTML = "&times";
+
+            const flex = document.createElement('div');
+            flex.className = "flex";
+
+            flex.appendChild(set);
+            flex.appendChild(rep);
+            flex.appendChild(weight);
+            flex.appendChild(btn);
+
+            input.appendChild(flex);
+
+            btn.addEventListener('click', function () {
+                input.removeChild(flex);
+            });
+        }
+
+        addBtn.addEventListener('click', addInput);
+    }
+
+    const data = await getWorkouts();
+
+    const exerciseFilter = document.getElementById('exerciseFilter');
+    const exerciseSet = new Set();
+    data.forEach(workout => {
+        exerciseSet.add(workout.action);
+    });
+    exerciseSet.forEach(exercise => {
+        const option = document.createElement('option');
+        option.value = exercise;
+        option.textContent = exercise;
+        exerciseFilter.appendChild(option);
+    });
+
+    exerciseFilter.addEventListener('change', function () {
+        const selectedExercise = this.value;
+        displayWorkouts(data, selectedExercise);
+    });
+
+    displayWorkouts(data);
 });
+
 
 async function submitWorkout() {
     const exerciseName = document.getElementById('exerciseName').value;
@@ -210,7 +279,7 @@ async function submitWorkout() {
         .then(response => {
             if (response.ok) {
                 alert("Workout submitted successfully");
-                getWorkouts();
+                displayWorkouts();
             }
         })
         .catch(error => {
@@ -223,7 +292,7 @@ async function submitWorkout() {
 async function getWorkouts() {
     const token = sessionStorage.getItem('gymappToken');
 
-    await fetch("http://localhost:5001/actions", {
+    return await fetch("http://localhost:5001/actions", {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -234,15 +303,18 @@ async function getWorkouts() {
             return response.json();
         })
         .then(data => {
-            displayWorkouts(data);
+            return data;
         })
 
 }
 
-function displayWorkouts(data) {
+async function displayWorkouts(data, filterExercise = null) {
     const displayWorkouts = document.getElementById('workouts');
     displayWorkouts.innerHTML = "";
-    data.forEach(workout => {
+
+    const filteredData = filterExercise ? data.filter(workout => workout.action === filterExercise) : data;
+
+    filteredData.forEach(workout => {
         const workoutCard = document.createElement('div');
         workoutCard.classList.add('workout-card');
 
@@ -327,7 +399,7 @@ function displayWorkouts(data) {
             cancelButton.textContent = 'Cancel';
             cancelButton.classList.add('cancel-button', 'btn', 'btn-secondary', 'mx-2');
             cancelButton.addEventListener('click', () => {
-                getWorkouts();
+                location.reload();
             });
 
             editButton.replaceWith(saveButton);
@@ -341,12 +413,12 @@ function displayWorkouts(data) {
         deleteButton.classList.add('delete-button');
         deleteButton.addEventListener('click', () => {
             deleteWorkout(workout._id);
+            location.reload
         });
         workoutCard.appendChild(deleteButton);
 
         displayWorkouts.appendChild(workoutCard);
     });
-
 }
 
 async function deleteWorkout(id) {
@@ -396,3 +468,95 @@ async function editWorkout(id, workout) {
             alert("An error occurred during workout submission");
         });
 }
+
+async function d3js() {
+    const data = await getWorkouts();
+
+    const exercisesMap = new Map();
+    data.forEach(workout => {
+        const action = workout.action;
+        if (!exercisesMap.has(action)) {
+            exercisesMap.set(action, []);
+        }
+        exercisesMap.get(action).push(workout);
+    });
+
+    exercisesMap.forEach((exerciseData, action) => {
+        drawDiagram(exerciseData, action);
+    });
+}
+
+function drawDiagram(exerciseData, action) {
+    const margin = { top: 40, right: 0, bottom: 90, left: 120 };
+    const width = 800 - margin.left - margin.right;
+    const height = 400 - margin.top - margin.bottom;
+
+    const svg = d3.select("#chart")
+        .append("svg")
+        .attr("id", `${action}-chart`)
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    exerciseData.forEach(workout => {
+        let totalWeightLifted = 0;
+        workout.sets.forEach(set => {
+            totalWeightLifted += parseFloat(set.reps) * parseFloat(set.weight);
+        });
+        workout.totalWeightLifted = totalWeightLifted;
+    });
+
+    const x = d3.scaleBand()
+        .domain(exerciseData.map(d => formatDate(d.day)))
+        .range([0, width])
+        .padding(0.1);
+
+    const y = d3.scaleLinear()
+        .domain([0, d3.max(exerciseData, d => d.totalWeightLifted)])
+        .nice()
+        .range([height, 0]);
+
+    svg.selectAll(".bar")
+        .data(exerciseData)
+        .enter().append("rect")
+        .attr("class", "bar")
+        .attr("x", d => x(formatDate(d.day)))
+        .attr("y", d => y(d.totalWeightLifted))
+        .attr("width", x.bandwidth())
+        .attr("height", d => height - y(d.totalWeightLifted));
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+        .attr("dy", "0.5em")
+        .attr("dx", "-0.5em")
+        .attr("transform", "rotate(-45)")
+        .style("text-anchor", "end");
+
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(d3.axisLeft(y).tickFormat(d => `${d}kg`));
+
+    svg.append("text")
+        .attr("x", (width / 2))
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")
+        .style("font-size", "16px")
+        .text(action);
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0];
+}
+
+
+
+
+
+
+
+
