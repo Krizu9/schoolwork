@@ -54,8 +54,6 @@ const updateAction = async (req, res) => {
 const deleteAction = async (req, res) => {
     try {
         const { id } = req.params;
-        console.log(id)
-        console.log(req.params)
         const deleted = await Workouts.findByIdAndDelete(id);
         res.status(200).json(deleted);
     }
