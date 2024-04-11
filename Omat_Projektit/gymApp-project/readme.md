@@ -31,3 +31,7 @@ This is project, that I did not plan at all. I am just learning while doing and 
 
 ## Currenly developing
 - Making UI look better
+
+## Timetracking for thesis
+After deciding to make this project my thesis work, I estimate at that point I have worked on this for about 50-60 hours.<br>
+- 11.04.2024 = 2hours - Setting up the vue project, created login and home page template aswell as navbar<br>
